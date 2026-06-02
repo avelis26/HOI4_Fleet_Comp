@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
 """HOI4 Fleet Composition Cheat Sheet Generator
-Reads config/fleet.json and config/references.json, writes cheat_sheet.html.
+Usage:
+  python main.py
+  python main.py --fleet config/fleet.json --references config/references.json \
+                 --theme config/themes.json --output cheat_sheet.html
 """
 
+import argparse
 import json
 from collections import defaultdict
 from datetime import date
@@ -46,6 +50,20 @@ def short_role(role):
 def pill(cls, cnt, css="ship-pill"):
     return f'<span class="{css}">{cls} ×{cnt}</span>'
 
+# ── theme ─────────────────────────────────────────────────────────────────────
+
+def load_theme(themes_path, theme_name):
+    data   = load(themes_path)
+    lookup = {t["name"]: t["vars"] for t in data["themes"]}
+    if theme_name not in lookup:
+        print(f"Warning: theme '{theme_name}' not found, falling back to 'parchment'")
+        theme_name = "parchment"
+    return lookup[theme_name]
+
+def render_css_vars(vars_dict):
+    lines = "\n  ".join(f"{k}: {v};" for k, v in vars_dict.items())
+    return f":root {{\n  {lines}\n}}"
+
 # ── task-force / fleet rendering ──────────────────────────────────────────────
 
 def render_tf_row(tf):
@@ -60,7 +78,7 @@ def render_tf_row(tf):
 
 def render_class_totals(task_forces, class_order):
     totals = fleet_class_totals(task_forces)
-    pills = "".join(pill(c, totals[c], "ct-pill") for c in class_order if c in totals)
+    pills  = "".join(pill(c, totals[c], "ct-pill") for c in class_order if c in totals)
     return f'<div class="class-totals">{pills}</div>'
 
 def render_fleet(fleet, theater_name, class_order):
@@ -111,8 +129,7 @@ def render_theaters_grid(theaters, class_order):
         else:
             parts.append(render_fleet(entries[0][1], entries[0][0], class_order))
 
-    body = "\n".join(parts)
-    return f'  <div class="theaters-grid" style="grid-template-columns:{widths};">\n{body}\n  </div>'
+    return f'  <div class="theaters-grid" style="grid-template-columns:{widths};">\n' + "\n".join(parts) + "\n  </div>"
 
 # ── loadout section ───────────────────────────────────────────────────────────
 
@@ -142,7 +159,7 @@ def render_legend_table(entries):
         f'<tr>'
         f'<td class="leg-abbr">{e["abbr"]}</td>'
         f'<td class="leg-meaning">{e["name"]}&emsp;Ex:&emsp;'
-        f'<em style="font-size:15px;color:#5c3d11;">{e["example"]}</em></td>'
+        f'<em style="font-size:15px;color:var(--text-secondary);">{e["example"]}</em></td>'
         f'</tr>'
         for e in entries
     )
@@ -174,18 +191,18 @@ def render_legend_section(aircraft_types, mission_types, ship_classes):
 
 # ── CSS ───────────────────────────────────────────────────────────────────────
 
-CSS = """
+CSS_TEMPLATE = """
   @import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Oswald:wght@400;600;700&family=IM+Fell+English:ital@0;1&display=swap');
 
   *{box-sizing:border-box;margin:0;padding:0;}
 
   body{
-    background:#c8b89a;
+    background: var(--body-bg);
     background-image:
-      repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.03) 2px,rgba(0,0,0,.03) 4px),
-      repeating-linear-gradient(90deg,transparent,transparent 2px,rgba(0,0,0,.02) 2px,rgba(0,0,0,.02) 4px);
+      repeating-linear-gradient(0deg,transparent,transparent 2px,var(--stripe-a) 2px,var(--stripe-a) 4px),
+      repeating-linear-gradient(90deg,transparent,transparent 2px,var(--stripe-b) 2px,var(--stripe-b) 4px);
     font-family:'Special Elite',monospace;
-    color:#1a1208;
+    color: var(--text-primary);
     min-height:100vh;
     padding:18px;
   }
@@ -193,10 +210,10 @@ CSS = """
   .page{
     max-width:2440px;
     margin:0 auto;
-    border:6px double #5c3d11;
-    outline:2px solid #8b6533;
+    border:6px double var(--border-primary);
+    outline:2px solid var(--border-outline);
     outline-offset:4px;
-    background:#e8dfc8;
+    background: var(--page-bg);
     padding:22px 28px 28px;
     position:relative;
   }
@@ -204,32 +221,32 @@ CSS = """
   .page::before{
     content:'';
     position:absolute;inset:0;
-    background:radial-gradient(ellipse at 20% 20%,rgba(180,140,80,.13) 0%,transparent 60%),
-               radial-gradient(ellipse at 80% 80%,rgba(100,60,20,.10) 0%,transparent 55%);
+    background:radial-gradient(ellipse at 20% 20%,var(--glow-a) 0%,transparent 60%),
+               radial-gradient(ellipse at 80% 80%,var(--glow-b) 0%,transparent 55%);
     pointer-events:none;
   }
 
-  .header{text-align:center;border-bottom:3px double #5c3d11;padding-bottom:14px;margin-bottom:18px;}
-  .header .stars{font-size:16px;letter-spacing:6px;color:#8b3a0f;margin-bottom:4px;}
+  .header{text-align:center;border-bottom:3px double var(--border-primary);padding-bottom:14px;margin-bottom:18px;}
+  .header .stars{font-size:16px;letter-spacing:6px;color:var(--accent);margin-bottom:4px;}
   .header h1{
     font-family:'Oswald',sans-serif;font-weight:700;
     font-size:46px;letter-spacing:4px;text-transform:uppercase;
-    color:#2a1a05;text-shadow:1px 1px 0 #c8a06a;line-height:1.1;
+    color:var(--text-primary);text-shadow:1px 1px 0 var(--heading-shadow);line-height:1.1;
   }
   .header h2{
     font-family:'IM Fell English',serif;font-style:italic;
-    font-size:20px;color:#5c3d11;margin-top:3px;letter-spacing:1px;
+    font-size:20px;color:var(--text-secondary);margin-top:3px;letter-spacing:1px;
   }
-  .header .divider{color:#8b3a0f;letter-spacing:4px;font-size:14px;margin-top:4px;}
+  .header .divider{color:var(--accent);letter-spacing:4px;font-size:14px;margin-top:4px;}
 
   .theaters-grid{display:grid;gap:16px;margin-bottom:16px;}
 
-  .theater{border:2px solid #5c3d11;background:rgba(255,248,230,.55);}
+  .theater{border:2px solid var(--border-primary);background:var(--surface-light);}
   .theater-header{
-    background:#2a1a05;color:#e8d5a0;
+    background:var(--surface-dark);color:var(--surface-dark-text);
     font-family:'Oswald',sans-serif;font-weight:700;
     font-size:17px;letter-spacing:3px;text-transform:uppercase;
-    text-align:center;padding:7px 8px;border-bottom:2px solid #8b6533;
+    text-align:center;padding:7px 8px;border-bottom:2px solid var(--border-outline);
   }
   .theater-body{padding:10px;}
 
@@ -238,99 +255,99 @@ CSS = """
   .fleet-name{
     font-family:'Oswald',sans-serif;font-weight:600;
     font-size:16px;letter-spacing:2px;text-transform:uppercase;
-    color:#8b3a0f;border-bottom:1px solid #a07840;
+    color:var(--accent);border-bottom:1px solid var(--border-mid);
     padding-bottom:4px;margin-bottom:8px;
   }
   .fleet-sub{
     font-size:14px;font-family:'IM Fell English',serif;font-style:italic;
-    color:#5c3d11;display:block;letter-spacing:.5px;
+    color:var(--text-secondary);display:block;letter-spacing:.5px;
   }
   .fleet-total{
     float:right;
     font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;
-    background:#2a1a05;color:#e8d5a0;padding:2px 8px;border-radius:2px;
+    background:var(--surface-dark);color:var(--surface-dark-text);padding:2px 8px;border-radius:2px;
   }
 
   .tf-table{width:100%;border-collapse:collapse;}
-  .tf-table tr{border-bottom:1px dotted #b09060;}
+  .tf-table tr{border-bottom:1px dotted var(--border-light);}
   .tf-table tr:last-child{border-bottom:none;}
   .tf-table td{padding:5px 5px;vertical-align:top;line-height:1.35;}
 
   .tf-name{
     font-family:'Oswald',sans-serif;font-weight:900;
-    font-size:16px;color:#1a1208;white-space:nowrap;width:104px;
+    font-size:16px;color:var(--text-primary);white-space:nowrap;width:104px;
   }
   .tf-role{
-    font-size:12.5px;color:#5c3d11;font-style:italic;
+    font-size:12.5px;color:var(--text-secondary);font-style:italic;
     display:block;letter-spacing:.3px;line-height:1.25;
   }
-  .tf-comp{font-size:13px;color:#2a1a05;line-height:1.6;}
+  .tf-comp{font-size:13px;color:var(--text-primary);line-height:1.6;}
   .ship-pill{
     display:inline-block;
-    background:#2a1a05;color:#e8d5a0;
+    background:var(--surface-dark);color:var(--surface-dark-text);
     font-family:'Oswald',sans-serif;font-weight:600;
     font-size:16px;letter-spacing:.7px;
     padding:2px 6px;border-radius:2px;margin:1px 2px 1px 0;white-space:nowrap;
   }
   .tf-total-cell{
     text-align:right;white-space:nowrap;width:36px;
-    font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;color:#8b3a0f;
+    font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;color:var(--accent);
   }
 
   .class-totals{
     margin-top:7px;padding-top:6px;
-    border-top:1px solid #a07840;
+    border-top:1px solid var(--border-mid);
     display:flex;flex-wrap:wrap;gap:4px;
   }
   .ct-pill{
-    background:#5c3d11;color:#e8d5a0;
+    background:var(--surface-mid);color:var(--surface-dark-text);
     font-family:'Oswald',sans-serif;font-weight:800;font-size:14px;
     padding:2px 6px;border-radius:2px;white-space:nowrap;
   }
 
   .bottom-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;}
 
-  .loadout-section{border:2px solid #5c3d11;background:rgba(255,248,230,.55);padding:12px 14px;}
+  .loadout-section{border:2px solid var(--border-primary);background:var(--surface-light);padding:12px 14px;}
   .loadout-header{
     font-family:'Oswald',sans-serif;font-weight:700;font-size:17px;
-    letter-spacing:3px;text-transform:uppercase;color:#2a1a05;
-    border-bottom:2px double #5c3d11;padding-bottom:6px;margin-bottom:10px;text-align:center;
+    letter-spacing:3px;text-transform:uppercase;color:var(--text-primary);
+    border-bottom:2px double var(--border-primary);padding-bottom:6px;margin-bottom:10px;text-align:center;
   }
   .loadout-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;}
-  .loadout-card{border:1px solid #a07840;background:rgba(240,228,200,.7);padding:8px 10px;}
+  .loadout-card{border:1px solid var(--border-mid);background:var(--card-bg);padding:8px 10px;}
   .lc-class{
     font-family:'Oswald',sans-serif;font-weight:700;font-size:16px;
-    color:#8b3a0f;letter-spacing:1px;border-bottom:1px dotted #a07840;
+    color:var(--accent);letter-spacing:1px;border-bottom:1px dotted var(--border-mid);
     padding-bottom:3px;margin-bottom:6px;
   }
   .mod-entry{display:flex;justify-content:space-between;gap:4px;padding:1px 0;}
-  .mod-name{font-family:'Oswald',sans-serif;font-weight:600;font-size:13px;color:#2a1a05;}
-  .mod-qty{font-family:'Oswald',sans-serif;font-weight:700;font-size:13px;color:#8b3a0f;}
+  .mod-name{font-family:'Oswald',sans-serif;font-weight:600;font-size:13px;color:var(--text-primary);}
+  .mod-qty{font-family:'Oswald',sans-serif;font-weight:700;font-size:13px;color:var(--accent);}
 
-  .legend-section{border:2px solid #5c3d11;background:rgba(255,248,230,.55);padding:12px 14px;}
+  .legend-section{border:2px solid var(--border-primary);background:var(--surface-light);padding:12px 14px;}
   .legend-header{
     font-family:'Oswald',sans-serif;font-weight:700;font-size:17px;
-    letter-spacing:3px;text-transform:uppercase;color:#2a1a05;
-    border-bottom:2px double #5c3d11;padding-bottom:6px;margin-bottom:10px;text-align:center;
+    letter-spacing:3px;text-transform:uppercase;color:var(--text-primary);
+    border-bottom:2px double var(--border-primary);padding-bottom:6px;margin-bottom:10px;text-align:center;
   }
   .legend-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
   .legend-group-title{
     font-family:'Oswald',sans-serif;font-weight:600;font-size:14px;
-    letter-spacing:2px;text-transform:uppercase;color:#5c3d11;
-    border-bottom:1px dotted #a07840;margin-bottom:6px;padding-bottom:3px;
+    letter-spacing:2px;text-transform:uppercase;color:var(--text-secondary);
+    border-bottom:1px dotted var(--border-mid);margin-bottom:6px;padding-bottom:3px;
   }
   .legend-table{width:100%;border-collapse:collapse;}
-  .legend-table tr{border-bottom:1px dotted rgba(92,61,17,.3);}
+  .legend-table tr{border-bottom:1px dotted var(--legend-divider);}
   .legend-table tr:last-child{border-bottom:none;}
   .legend-table td{padding:4px 5px;vertical-align:top;}
-  .leg-abbr{font-family:'Oswald',sans-serif;font-weight:700;color:#8b3a0f;font-size:14px;white-space:nowrap;width:48px;}
-  .leg-meaning{color:#1a1208;font-size:16px;line-height:1.4;}
+  .leg-abbr{font-family:'Oswald',sans-serif;font-weight:700;color:var(--accent);font-size:14px;white-space:nowrap;width:48px;}
+  .leg-meaning{color:var(--text-primary);font-size:16px;line-height:1.4;}
 
   .footer{
     text-align:center;margin-top:8px;
-    border-top:4px double #5c3d11;padding-top:10px;
+    border-top:4px double var(--border-primary);padding-top:10px;
     font-family:'IM Fell English',serif;font-style:italic;
-    font-size:18px;color:#5c3d11;letter-spacing:1px;
+    font-size:18px;color:var(--text-secondary);letter-spacing:1px;
   }
 """
 
@@ -350,19 +367,23 @@ def render_footer(total):
     Designed by Graham Pinkston &nbsp;·&nbsp; Coded by Claud.ai &nbsp;·&nbsp; Total Fleet Strength: {total} Ships Across All Theaters &nbsp;·&nbsp; {today}
   </div>"""
 
-def build_html(theaters, ship_classes, aircraft_types, mission_types):
-    class_order    = [sc["type"] for sc in ship_classes]
-    theaters_grid  = render_theaters_grid(theaters, class_order)
-    loadout        = render_loadout_section(ship_classes)
-    legend         = render_legend_section(aircraft_types, mission_types, ship_classes)
-    total          = grand_total(theaters)
+def build_html(theaters, ship_classes, aircraft_types, mission_types, css_vars):
+    class_order   = [sc["type"] for sc in ship_classes]
+    theaters_grid = render_theaters_grid(theaters, class_order)
+    loadout       = render_loadout_section(ship_classes)
+    legend        = render_legend_section(aircraft_types, mission_types, ship_classes)
+    total         = grand_total(theaters)
+    css_root      = render_css_vars(css_vars)
 
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=2560">
-<style>{CSS}</style>
+<style>
+  {css_root}
+  {CSS_TEMPLATE}
+</style>
 </head>
 <body>
 <div class="page">
@@ -379,21 +400,33 @@ def build_html(theaters, ship_classes, aircraft_types, mission_types):
 
 # ── entry point ───────────────────────────────────────────────────────────────
 
+def parse_args():
+    p = argparse.ArgumentParser(description="Generate HOI4 fleet cheat sheet HTML")
+    p.add_argument("--fleet",      default="config/fleet.json",      help="Path to fleet.json")
+    p.add_argument("--references", default="config/references.json", help="Path to references.json")
+    p.add_argument("--theme",      default="config/themes.json",     help="Path to themes.json")
+    p.add_argument("--output",     default="cheat_sheet.html",       help="Output HTML filename")
+    namespace, _ = p.parse_known_args()
+    return namespace
+
 def main():
-    fleet_data = load("config/fleet.json")
-    ref_data   = load("config/references.json")
+    args       = parse_args()
+    fleet_data = load(args.fleet)
+    ref_data   = load(args.references)
+    theme_name = fleet_data.get("theme", "parchment")
+    css_vars   = load_theme(args.theme, theme_name)
 
     html = build_html(
-        theaters      = fleet_data["theaters"],
-        ship_classes  = ref_data["ship_classes"],
-        aircraft_types= ref_data["aircraft_types"],
-        mission_types = ref_data["mission_types"],
+        theaters       = fleet_data["theaters"],
+        ship_classes   = ref_data["ship_classes"],
+        aircraft_types = ref_data["aircraft_types"],
+        mission_types  = ref_data["mission_types"],
+        css_vars       = css_vars,
     )
 
-    out = "cheat_sheet.html"
-    write(out, html)
+    write(args.output, html)
     total = grand_total(fleet_data["theaters"])
-    print(f"✓ {out} — {total} ships across all theaters")
+    print(f"✓ {args.output} [{theme_name}] — {total} ships across all theaters")
 
 if __name__ == "__main__":
     main()
