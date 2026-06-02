@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "references.schema.json",
+  "title": "References",
+  "type": "object",
+  "required": ["ship_classes", "aircraft_types", "mission_types"],
+  "additionalProperties": false,
+  "properties": {
+    "ship_classes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["type", "class_name", "philosophy", "modules"],
+        "additionalProperties": false,
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["CV", "CVL", "BB", "CA", "CL", "CLAA", "DD", "DE", "CM", "SS"]
+          },
+          "class_name":  { "type": "string" },
+          "philosophy":  { "type": "string" },
+          "modules": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["name", "qty"],
+              "additionalProperties": false,
+              "properties": {
+                "name": { "type": "string" },
+                "qty":  { "type": "integer", "minimum": 1 }
+              }
+            }
+          }
+        }
+      }
+    },
+    "aircraft_types": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["abbr", "name", "example"],
+        "additionalProperties": false,
+        "properties": {
+          "abbr":    { "type": "string" },
+          "name":    { "type": "string" },
+          "example": { "type": "string" }
+        }
+      }
+    },
+    "mission_types": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["abbr", "name", "example"],
+        "additionalProperties": false,
+        "properties": {
+          "abbr":    { "type": "string" },
+          "name":    { "type": "string" },
+          "example": { "type": "string" }
+        }
+      }
+    }
+  }
+}
