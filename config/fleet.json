@@ -5,6 +5,7 @@
       "fleets": [
         {
           "id": "1st_Fleet",
+          "display_column": 1,
           "name": "1st Fleet - Central Pacific Offensive",
           "task_forces": [
             { "id": "CarDiv 10",    "role": "CARRIER STRIKE GROUP ALPHA",  "ships": { "CV": 4, "CA": 6, "CL": 8, "CLAA": 8, "DD": 24 } },
@@ -19,6 +20,7 @@
         },
         {
           "id": "7th_Fleet",
+          "display_column": 2,
           "name": "7th Fleet - South Pacific/Philippines",
           "task_forces": [
             { "id": "CarDiv 70",    "role": "CARRIER STRIKE GROUP ALPHA",  "ships": { "CV": 3, "CA": 4, "CL": 3, "CLAA": 3, "DD": 15 } },
@@ -34,6 +36,7 @@
       "fleets": [
         {
           "id": "2nd_Fleet",
+          "display_column": 3,
           "name": "2nd Fleet - Atlantic Convoy & Invasion",
           "task_forces": [
             { "id": "CarDiv 20",  "role": "CARRIER STRIKE GROUP ALPHA",  "ships": { "CV": 3, "CA": 4, "CL": 3, "CLAA": 3, "DD": 15 } },
@@ -49,6 +52,7 @@
       "fleets": [
         {
           "id": "6th_Fleet",
+          "display_column": 4,
           "name": "6th Fleet - Med Support",
           "task_forces": [
             { "id": "CarDiv 60", "role": "CARRIER INVASION GROUP ALPHA", "ships": { "CVL": 1, "CA": 2, "CL": 4, "CLAA": 2, "DE": 10 } },
@@ -62,6 +66,7 @@
       "fleets": [
         {
           "id": "3rd_Fleet",
+          "display_column": 4,
           "name": "3rd Fleet - Training & Strategic Reserve",
           "task_forces": [
             { "id": "CarTrain 30", "role": "CARRIER TRAINING GROUP ALPHA", "ships": { "CV": 2, "CVL": 2, "CL": 4, "CLAA": 2, "DE": 10 } },

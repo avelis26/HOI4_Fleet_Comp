@@ -20,11 +20,12 @@
             "minItems": 1,
             "items": {
               "type": "object",
-              "required": ["id", "name", "task_forces"],
+              "required": ["id", "display_column", "name", "task_forces"],
               "additionalProperties": false,
               "properties": {
-                "id":   { "type": "string" },
-                "name": { "type": "string" },
+                "id":             { "type": "string" },
+                "display_column": { "type": "integer", "minimum": 1 },
+                "name":           { "type": "string" },
                 "task_forces": {
                   "type": "array",
                   "minItems": 1,
