@@ -26,9 +26,9 @@ class_philosophy: {
 	"CVL":  &CVL_PHIL  "Cheap (under 10k PC). Some armor. Runs in small fleet exposed. Pure AS. max fighters.",
 	"BB":   &BB_PHIL   "Max main battery guns & armor. Radar & fire control. Rest DP and AA. Don't mix with CV's!",
 	"CA":   &CA_PHIL   "Max main battery guns & armor. Radar & fire control. Rest DP and AA. Mini BB.",
-	"CL":   &CL_PHIL   "DP for main guns. Balaced torps/ aa/ cat/ & dep. Radar and sonar. Max armor for screen defense.",
+	"CL":   &CL_PHIL   "DP for main guns. Balanced torps/ aa/ cat/ & dep. Radar and sonar. Max armor for screen defense.",
 	"CLAA": &CLAA_PHIL "Max AA modules. Radar + fire control. DP for main battery guns to increase AA. So carriers may live.",
-	"DD":   &DD_PHIL   "Balanced torpedos + depth charges + ASW. Radar + sonar. Main screen for carriers.",
+	"DD":   &DD_PHIL   "Balanced torpedeos + depth charges + ASW. Radar + sonar. Main screen for carriers.",
 	"DE":   &DE_PHIL   "Max ASW. Radar + sonar. Max range and speed. AA for leftover slots.",
 	"CM":   &CM_PHIL   "Max minelaying modules. Radar + sonar. Speed priority.",
 	"SS":   &SS_PHIL   "Max torpedo tubes. Snorkel for max stealth. Cruiser sub hull for best range."
