@@ -6,6 +6,7 @@
   "required": ["theaters"],
   "additionalProperties": false,
   "properties": {
+    "theme":   { "type": "string" },
     "theaters": {
       "type": "array",
       "minItems": 1,

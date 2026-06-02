@@ -4,17 +4,40 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=2560">
 <style>
+  :root {
+  --body-bg: #0a1628;
+  --stripe-a: rgba(255,255,255,.02);
+  --stripe-b: rgba(255,255,255,.01);
+  --page-bg: #0d2040;
+  --glow-a: rgba(0,100,180,.15);
+  --glow-b: rgba(0,60,120,.12);
+  --text-primary: #d4eaf5;
+  --text-secondary: #7ab8d0;
+  --accent: #c9a227;
+  --heading-shadow: rgba(200,160,40,.35);
+  --border-primary: #2a6a8a;
+  --border-outline: #c9a227;
+  --border-mid: #c9a227;
+  --border-light: #2a5a7a;
+  --surface-dark: #051525;
+  --surface-dark-text: #c9a227;
+  --surface-mid: #1a3a5c;
+  --surface-light: rgba(5,20,50,.75);
+  --card-bg: rgba(8,28,58,.85);
+  --legend-divider: rgba(100,180,220,.2);
+}
+  
   @import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Oswald:wght@400;600;700&family=IM+Fell+English:ital@0;1&display=swap');
 
   *{box-sizing:border-box;margin:0;padding:0;}
 
   body{
-    background:#c8b89a;
+    background: var(--body-bg);
     background-image:
-      repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.03) 2px,rgba(0,0,0,.03) 4px),
-      repeating-linear-gradient(90deg,transparent,transparent 2px,rgba(0,0,0,.02) 2px,rgba(0,0,0,.02) 4px);
+      repeating-linear-gradient(0deg,transparent,transparent 2px,var(--stripe-a) 2px,var(--stripe-a) 4px),
+      repeating-linear-gradient(90deg,transparent,transparent 2px,var(--stripe-b) 2px,var(--stripe-b) 4px);
     font-family:'Special Elite',monospace;
-    color:#1a1208;
+    color: var(--text-primary);
     min-height:100vh;
     padding:18px;
   }
@@ -22,10 +45,10 @@
   .page{
     max-width:2440px;
     margin:0 auto;
-    border:6px double #5c3d11;
-    outline:2px solid #8b6533;
+    border:6px double var(--border-primary);
+    outline:2px solid var(--border-outline);
     outline-offset:4px;
-    background:#e8dfc8;
+    background: var(--page-bg);
     padding:22px 28px 28px;
     position:relative;
   }
@@ -33,32 +56,32 @@
   .page::before{
     content:'';
     position:absolute;inset:0;
-    background:radial-gradient(ellipse at 20% 20%,rgba(180,140,80,.13) 0%,transparent 60%),
-               radial-gradient(ellipse at 80% 80%,rgba(100,60,20,.10) 0%,transparent 55%);
+    background:radial-gradient(ellipse at 20% 20%,var(--glow-a) 0%,transparent 60%),
+               radial-gradient(ellipse at 80% 80%,var(--glow-b) 0%,transparent 55%);
     pointer-events:none;
   }
 
-  .header{text-align:center;border-bottom:3px double #5c3d11;padding-bottom:14px;margin-bottom:18px;}
-  .header .stars{font-size:16px;letter-spacing:6px;color:#8b3a0f;margin-bottom:4px;}
+  .header{text-align:center;border-bottom:3px double var(--border-primary);padding-bottom:14px;margin-bottom:18px;}
+  .header .stars{font-size:16px;letter-spacing:6px;color:var(--accent);margin-bottom:4px;}
   .header h1{
     font-family:'Oswald',sans-serif;font-weight:700;
     font-size:46px;letter-spacing:4px;text-transform:uppercase;
-    color:#2a1a05;text-shadow:1px 1px 0 #c8a06a;line-height:1.1;
+    color:var(--text-primary);text-shadow:1px 1px 0 var(--heading-shadow);line-height:1.1;
   }
   .header h2{
     font-family:'IM Fell English',serif;font-style:italic;
-    font-size:20px;color:#5c3d11;margin-top:3px;letter-spacing:1px;
+    font-size:20px;color:var(--text-secondary);margin-top:3px;letter-spacing:1px;
   }
-  .header .divider{color:#8b3a0f;letter-spacing:4px;font-size:14px;margin-top:4px;}
+  .header .divider{color:var(--accent);letter-spacing:4px;font-size:14px;margin-top:4px;}
 
   .theaters-grid{display:grid;gap:16px;margin-bottom:16px;}
 
-  .theater{border:2px solid #5c3d11;background:rgba(255,248,230,.55);}
+  .theater{border:2px solid var(--border-primary);background:var(--surface-light);}
   .theater-header{
-    background:#2a1a05;color:#e8d5a0;
+    background:var(--surface-dark);color:var(--surface-dark-text);
     font-family:'Oswald',sans-serif;font-weight:700;
     font-size:17px;letter-spacing:3px;text-transform:uppercase;
-    text-align:center;padding:7px 8px;border-bottom:2px solid #8b6533;
+    text-align:center;padding:7px 8px;border-bottom:2px solid var(--border-outline);
   }
   .theater-body{padding:10px;}
 
@@ -67,100 +90,101 @@
   .fleet-name{
     font-family:'Oswald',sans-serif;font-weight:600;
     font-size:16px;letter-spacing:2px;text-transform:uppercase;
-    color:#8b3a0f;border-bottom:1px solid #a07840;
+    color:var(--accent);border-bottom:1px solid var(--border-mid);
     padding-bottom:4px;margin-bottom:8px;
   }
   .fleet-sub{
     font-size:14px;font-family:'IM Fell English',serif;font-style:italic;
-    color:#5c3d11;display:block;letter-spacing:.5px;
+    color:var(--text-secondary);display:block;letter-spacing:.5px;
   }
   .fleet-total{
     float:right;
     font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;
-    background:#2a1a05;color:#e8d5a0;padding:2px 8px;border-radius:2px;
+    background:var(--surface-dark);color:var(--surface-dark-text);padding:2px 8px;border-radius:2px;
   }
 
   .tf-table{width:100%;border-collapse:collapse;}
-  .tf-table tr{border-bottom:1px dotted #b09060;}
+  .tf-table tr{border-bottom:1px dotted var(--border-light);}
   .tf-table tr:last-child{border-bottom:none;}
   .tf-table td{padding:5px 5px;vertical-align:top;line-height:1.35;}
 
   .tf-name{
     font-family:'Oswald',sans-serif;font-weight:900;
-    font-size:16px;color:#1a1208;white-space:nowrap;width:104px;
+    font-size:16px;color:var(--text-primary);white-space:nowrap;width:104px;
   }
   .tf-role{
-    font-size:12.5px;color:#5c3d11;font-style:italic;
+    font-size:12.5px;color:var(--text-secondary);font-style:italic;
     display:block;letter-spacing:.3px;line-height:1.25;
   }
-  .tf-comp{font-size:13px;color:#2a1a05;line-height:1.6;}
+  .tf-comp{font-size:13px;color:var(--text-primary);line-height:1.6;}
   .ship-pill{
     display:inline-block;
-    background:#2a1a05;color:#e8d5a0;
+    background:var(--surface-dark);color:var(--surface-dark-text);
     font-family:'Oswald',sans-serif;font-weight:600;
     font-size:16px;letter-spacing:.7px;
     padding:2px 6px;border-radius:2px;margin:1px 2px 1px 0;white-space:nowrap;
   }
   .tf-total-cell{
     text-align:right;white-space:nowrap;width:36px;
-    font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;color:#8b3a0f;
+    font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;color:var(--accent);
   }
 
   .class-totals{
     margin-top:7px;padding-top:6px;
-    border-top:1px solid #a07840;
+    border-top:1px solid var(--border-mid);
     display:flex;flex-wrap:wrap;gap:4px;
   }
   .ct-pill{
-    background:#5c3d11;color:#e8d5a0;
+    background:var(--surface-mid);color:var(--surface-dark-text);
     font-family:'Oswald',sans-serif;font-weight:800;font-size:14px;
     padding:2px 6px;border-radius:2px;white-space:nowrap;
   }
 
   .bottom-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;}
 
-  .loadout-section{border:2px solid #5c3d11;background:rgba(255,248,230,.55);padding:12px 14px;}
+  .loadout-section{border:2px solid var(--border-primary);background:var(--surface-light);padding:12px 14px;}
   .loadout-header{
     font-family:'Oswald',sans-serif;font-weight:700;font-size:17px;
-    letter-spacing:3px;text-transform:uppercase;color:#2a1a05;
-    border-bottom:2px double #5c3d11;padding-bottom:6px;margin-bottom:10px;text-align:center;
+    letter-spacing:3px;text-transform:uppercase;color:var(--text-primary);
+    border-bottom:2px double var(--border-primary);padding-bottom:6px;margin-bottom:10px;text-align:center;
   }
   .loadout-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;}
-  .loadout-card{border:1px solid #a07840;background:rgba(240,228,200,.7);padding:8px 10px;}
+  .loadout-card{border:1px solid var(--border-mid);background:var(--card-bg);padding:8px 10px;}
   .lc-class{
     font-family:'Oswald',sans-serif;font-weight:700;font-size:16px;
-    color:#8b3a0f;letter-spacing:1px;border-bottom:1px dotted #a07840;
+    color:var(--accent);letter-spacing:1px;border-bottom:1px dotted var(--border-mid);
     padding-bottom:3px;margin-bottom:6px;
   }
   .mod-entry{display:flex;justify-content:space-between;gap:4px;padding:1px 0;}
-  .mod-name{font-family:'Oswald',sans-serif;font-weight:600;font-size:13px;color:#2a1a05;}
-  .mod-qty{font-family:'Oswald',sans-serif;font-weight:700;font-size:13px;color:#8b3a0f;}
+  .mod-name{font-family:'Oswald',sans-serif;font-weight:600;font-size:13px;color:var(--text-primary);}
+  .mod-qty{font-family:'Oswald',sans-serif;font-weight:700;font-size:13px;color:var(--accent);}
 
-  .legend-section{border:2px solid #5c3d11;background:rgba(255,248,230,.55);padding:12px 14px;}
+  .legend-section{border:2px solid var(--border-primary);background:var(--surface-light);padding:12px 14px;}
   .legend-header{
     font-family:'Oswald',sans-serif;font-weight:700;font-size:17px;
-    letter-spacing:3px;text-transform:uppercase;color:#2a1a05;
-    border-bottom:2px double #5c3d11;padding-bottom:6px;margin-bottom:10px;text-align:center;
+    letter-spacing:3px;text-transform:uppercase;color:var(--text-primary);
+    border-bottom:2px double var(--border-primary);padding-bottom:6px;margin-bottom:10px;text-align:center;
   }
   .legend-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
   .legend-group-title{
     font-family:'Oswald',sans-serif;font-weight:600;font-size:14px;
-    letter-spacing:2px;text-transform:uppercase;color:#5c3d11;
-    border-bottom:1px dotted #a07840;margin-bottom:6px;padding-bottom:3px;
+    letter-spacing:2px;text-transform:uppercase;color:var(--text-secondary);
+    border-bottom:1px dotted var(--border-mid);margin-bottom:6px;padding-bottom:3px;
   }
   .legend-table{width:100%;border-collapse:collapse;}
-  .legend-table tr{border-bottom:1px dotted rgba(92,61,17,.3);}
+  .legend-table tr{border-bottom:1px dotted var(--legend-divider);}
   .legend-table tr:last-child{border-bottom:none;}
   .legend-table td{padding:4px 5px;vertical-align:top;}
-  .leg-abbr{font-family:'Oswald',sans-serif;font-weight:700;color:#8b3a0f;font-size:14px;white-space:nowrap;width:48px;}
-  .leg-meaning{color:#1a1208;font-size:16px;line-height:1.4;}
+  .leg-abbr{font-family:'Oswald',sans-serif;font-weight:700;color:var(--accent);font-size:14px;white-space:nowrap;width:48px;}
+  .leg-meaning{color:var(--text-primary);font-size:16px;line-height:1.4;}
 
   .footer{
     text-align:center;margin-top:8px;
-    border-top:4px double #5c3d11;padding-top:10px;
+    border-top:4px double var(--border-primary);padding-top:10px;
     font-family:'IM Fell English',serif;font-style:italic;
-    font-size:18px;color:#5c3d11;letter-spacing:1px;
+    font-size:18px;color:var(--text-secondary);letter-spacing:1px;
   }
+
 </style>
 </head>
 <body>
@@ -374,28 +398,28 @@
         <div>
           <div class="legend-group-title">Aircraft Types</div>
           <table class="legend-table">
-            <tr><td class="leg-abbr">DB</td><td class="leg-meaning">Dive Bomber&emsp;Ex:&emsp;<em style="font-size:15px;color:#5c3d11;">Douglas A-20 Havoc</em></td></tr>
-            <tr><td class="leg-abbr">CDB</td><td class="leg-meaning">CV Dive Bomber&emsp;Ex:&emsp;<em style="font-size:15px;color:#5c3d11;">Douglas SBD-2 Dauntless</em></td></tr>
-            <tr><td class="leg-abbr">FTR</td><td class="leg-meaning">Fighter&emsp;Ex:&emsp;<em style="font-size:15px;color:#5c3d11;">Curtiss P-40 Warhawk</em></td></tr>
-            <tr><td class="leg-abbr">CVF</td><td class="leg-meaning">CV Fighter&emsp;Ex:&emsp;<em style="font-size:15px;color:#5c3d11;">Grumman F4F Wildcat</em></td></tr>
-            <tr><td class="leg-abbr">TB</td><td class="leg-meaning">Torpedo Bomber&emsp;Ex:&emsp;<em style="font-size:15px;color:#5c3d11;">Grumman TBF Avenger</em></td></tr>
-            <tr><td class="leg-abbr">HFTR</td><td class="leg-meaning">Heavy Fighter&emsp;Ex:&emsp;<em style="font-size:15px;color:#5c3d11;">Republic P-47 Thunderbolt</em></td></tr>
-            <tr><td class="leg-abbr">TAC</td><td class="leg-meaning">Tactical Bomber&emsp;Ex:&emsp;<em style="font-size:15px;color:#5c3d11;">North American B-25 Mitchell</em></td></tr>
-            <tr><td class="leg-abbr">STR</td><td class="leg-meaning">Strategic Bomber&emsp;Ex:&emsp;<em style="font-size:15px;color:#5c3d11;">Consolidated B-24 Liberator</em></td></tr>
-            <tr><td class="leg-abbr">HMAR</td><td class="leg-meaning">Heavy Maritime&emsp;Ex:&emsp;<em style="font-size:15px;color:#5c3d11;">Consolidated PB4Y Liberator</em></td></tr>
-            <tr><td class="leg-abbr">MP</td><td class="leg-meaning">Maritime Patrol&emsp;Ex:&emsp;<em style="font-size:15px;color:#5c3d11;">Martin PBM Mariner</em></td></tr>
+            <tr><td class="leg-abbr">DB</td><td class="leg-meaning">Dive Bomber&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">Douglas A-20 Havoc</em></td></tr>
+            <tr><td class="leg-abbr">CDB</td><td class="leg-meaning">CV Dive Bomber&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">Douglas SBD-2 Dauntless</em></td></tr>
+            <tr><td class="leg-abbr">FTR</td><td class="leg-meaning">Fighter&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">Curtiss P-40 Warhawk</em></td></tr>
+            <tr><td class="leg-abbr">CVF</td><td class="leg-meaning">CV Fighter&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">Grumman F4F Wildcat</em></td></tr>
+            <tr><td class="leg-abbr">TB</td><td class="leg-meaning">Torpedo Bomber&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">Grumman TBF Avenger</em></td></tr>
+            <tr><td class="leg-abbr">HFTR</td><td class="leg-meaning">Heavy Fighter&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">Republic P-47 Thunderbolt</em></td></tr>
+            <tr><td class="leg-abbr">TAC</td><td class="leg-meaning">Tactical Bomber&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">North American B-25 Mitchell</em></td></tr>
+            <tr><td class="leg-abbr">STR</td><td class="leg-meaning">Strategic Bomber&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">Consolidated B-24 Liberator</em></td></tr>
+            <tr><td class="leg-abbr">HMAR</td><td class="leg-meaning">Heavy Maritime&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">Consolidated PB4Y Liberator</em></td></tr>
+            <tr><td class="leg-abbr">MP</td><td class="leg-meaning">Maritime Patrol&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">Martin PBM Mariner</em></td></tr>
           </table>
         </div>
         <div>
           <div class="legend-group-title">Mission Types</div>
           <table class="legend-table">
-            <tr><td class="leg-abbr">AS</td><td class="leg-meaning">Air Superiority&emsp;Ex:&emsp;<em style="font-size:15px;color:#5c3d11;">FTR's on AS</em></td></tr>
-            <tr><td class="leg-abbr">CAS</td><td class="leg-meaning">Close Air Support&emsp;Ex:&emsp;<em style="font-size:15px;color:#5c3d11;">DB's on CAS</em></td></tr>
-            <tr><td class="leg-abbr">INT</td><td class="leg-meaning">Interception&emsp;Ex:&emsp;<em style="font-size:15px;color:#5c3d11;">HFTR's on INT</em></td></tr>
-            <tr><td class="leg-abbr">SB</td><td class="leg-meaning">Strategic Bombing&emsp;Ex:&emsp;<em style="font-size:15px;color:#5c3d11;">STR's on SB</em></td></tr>
-            <tr><td class="leg-abbr">NS</td><td class="leg-meaning">Naval Strike&emsp;Ex:&emsp;<em style="font-size:15px;color:#5c3d11;">TB's on NS</em></td></tr>
-            <tr><td class="leg-abbr">PS</td><td class="leg-meaning">Port Strike&emsp;Ex:&emsp;<em style="font-size:15px;color:#5c3d11;">HMAR's on PS</em></td></tr>
-            <tr><td class="leg-abbr">NP</td><td class="leg-meaning">Naval Patrol&emsp;Ex:&emsp;<em style="font-size:15px;color:#5c3d11;">MP's on NP</em></td></tr>
+            <tr><td class="leg-abbr">AS</td><td class="leg-meaning">Air Superiority&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">FTR's on AS</em></td></tr>
+            <tr><td class="leg-abbr">CAS</td><td class="leg-meaning">Close Air Support&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">DB's on CAS</em></td></tr>
+            <tr><td class="leg-abbr">INT</td><td class="leg-meaning">Interception&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">HFTR's on INT</em></td></tr>
+            <tr><td class="leg-abbr">SB</td><td class="leg-meaning">Strategic Bombing&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">STR's on SB</em></td></tr>
+            <tr><td class="leg-abbr">NS</td><td class="leg-meaning">Naval Strike&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">TB's on NS</em></td></tr>
+            <tr><td class="leg-abbr">PS</td><td class="leg-meaning">Port Strike&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">HMAR's on PS</em></td></tr>
+            <tr><td class="leg-abbr">NP</td><td class="leg-meaning">Naval Patrol&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">MP's on NP</em></td></tr>
           </table>
         </div>
       </div>
