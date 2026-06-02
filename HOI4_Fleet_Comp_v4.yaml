@@ -1,0 +1,157 @@
+legend: {
+	airplanes: [
+		{ "abbr": "DB",   "meaning": "Dive Bomber",       "example": "Douglas A-20 Havoc" },
+		{ "abbr": "CDB",  "meaning": "CV Dive Bomber",    "example": "Douglas SBD-2 Dauntless" },
+		{ "abbr": "FTR",  "meaning": "Fighter",           "example": "Curtiss P-40 Warhawk" },
+		{ "abbr": "CVF",  "meaning": "CV Fighter",        "example": "Grumman F4F Wildcat" },
+		{ "abbr": "TB",   "meaning": "Torpedo Bomber",    "example": "Grumman TBF Avenger" },
+		{ "abbr": "HFTR", "meaning": "Heavy Fighter",     "example": "Republic P-47 Thunderbolt" },
+		{ "abbr": "TAC",  "meaning": "Tactical Bomber",   "example": "North American B-25 Mitchell" },
+		{ "abbr": "STR",  "meaning": "Strategic Bomber",  "example": "Consolidated B-24 Liberator" },
+		{ "abbr": "HMAR", "meaning": "Heavy Maritime",    "example": "Consolidated PB4Y Liberator" },
+		{ "abbr": "MP",   "meaning": "Maritime Patrol",   "example": "Martin PBM Mariner" }
+	],
+	missions: [
+		{ "abbr": "AS",   "meaning": "Air Superiority",   "example": "FTR's on AS" },
+		{ "abbr": "CAS",  "meaning": "Close Air Support", "example": "DB's on CAS" },
+		{ "abbr": "INT",  "meaning": "Interception",      "example": "HFTR's on INT" },
+		{ "abbr": "SB",   "meaning": "Strategic Bombing", "example": "STR's on SB" },
+		{ "abbr": "NS",   "meaning": "Naval Strike",      "example": "TB's on NS" },
+		{ "abbr": "PS",   "meaning": "Port Strike",       "example": "HMAR's on PS" },
+		{ "abbr": "NP",   "meaning": "Naval Patrol",      "example": "MP's on NP" }
+	]
+},
+class_philosophy: {
+	"CV":   &CV_PHIL   "Max flight decks and speed at least = CA. No armor. Max Radar. 50:40:30 ratio of CVF:TB:CDB.",
+	"CVL":  &CVL_PHIL  "Cheap (under 10k PC). Some armor. Runs in small fleet exposed. Pure AS. max fighters.",
+	"BB":   &BB_PHIL   "Max main battery guns & armor. Radar & fire control. Rest DP and AA. Don't mix with CV's!",
+	"CA":   &CA_PHIL   "Max main battery guns & armor. Radar & fire control. Rest DP and AA. Mini BB.",
+	"CL":   &CL_PHIL   "DP for main guns. Balaced torps/ aa/ cat/ & dep. Radar and sonar. Max armor for screen defense.",
+	"CLAA": &CLAA_PHIL "Max AA modules. Radar + fire control. DP for main battery guns to increase AA. So carriers may live.",
+	"DD":   &DD_PHIL   "Balanced torpedos + depth charges + ASW. Radar + sonar. Main screen for carriers.",
+	"DE":   &DE_PHIL   "Max ASW. Radar + sonar. Max range and speed. AA for leftover slots.",
+	"CM":   &CM_PHIL   "Max minelaying modules. Radar + sonar. Speed priority.",
+	"SS":   &SS_PHIL   "Max torpedo tubes. Snorkel for max stealth. Cruiser sub hull for best range."
+},
+module_loadout: {
+	"CV":   &CV_MOD   "HANG x6 | DP3 x1 | AA2 x1 | RAD3 x1 | ENG4 x1 | CVF x50 | TB x40 | CDB x30",
+	"CVL":  &CVL_MOD  "HANG x2 | DP3 x4 | DAR x1 | AA2 x1 | RAD3 x1 | ENG4 x1 | CVF x40",
+	"BB":   &BB_MOD   "AA2 x5 | HB5 x3 | DP3 x2 | FC2 x1 | RAD3 x1 | ENG2 x1 | ARM3 x1",
+	"CA":   &CA_MOD   "HB3 x3 | DP3 x2 | AA2 x2 | FC2 x1 | RAD3 x1 | ENG3 x1 | ARM4 x1",
+	"CL":   &CL_MOD   "AA2 x2 | TOR3 x2 | CAT2 x1 | DEP3 x1 | DP3 x2 | SON3 x1 | RAD3 x1 | ENG3 x1 | ARM4 x1",
+	"CLAA": &CLAA_MOD "AA2 x5 | DP3 x3 | FC2 x1 | RAD3 x1 | ENG3 x1 | ARM4 x1",
+	"DD":   &DD_MOD   "DEP3 x1 | TOR3 x2 | DP3 x2 | AA2 x1 | SON3 x1 | RAD3 x1 | ENG3 x1",
+	"DE":   &DE_MOD   "DEP3 x3 | DP3 x1 | AA2 x1 | SON3 x1 | RAD3 x1 | TOR3 x1 | ENG3 x1",
+	"CM":   &CM_MOD   "DP3 x2 | MLA x2 | AA2 x1 | SON3 x1 | RAD3 x1 | TOR3 x1 | ENG3 x1",
+	"SS":   &SS_MOD   "TOR3 x3 | SNO3 x1 | ENG2 x1"
+},
+
+Pacific_Theater: {
+	1st_Fleet: {
+		name: "1st Fleet - Central Pacific Offensive",
+		class_totals: {
+			"Essex":        { "class": "CV",   "philosophy": *CV_PHIL,   "modules": *CV_MOD,   "total": 4 },
+			"Independence": { "class": "CVL",  "philosophy": *CVL_PHIL,  "modules": *CVL_MOD,  "total": 1 },
+			"Iowa":         { "class": "BB",   "philosophy": *BB_PHIL,   "modules": *BB_MOD,   "total": 6 },
+			"Baltimore":    { "class": "CA",   "philosophy": *CA_PHIL,   "modules": *CA_MOD,   "total": 10 },
+			"Cleveland":    { "class": "CL",   "philosophy": *CL_PHIL,   "modules": *CL_MOD,   "total": 18 },
+			"Atlanta":      { "class": "CLAA", "philosophy": *CLAA_PHIL, "modules": *CLAA_MOD, "total": 19 },
+			"Winslow":      { "class": "DD",   "philosophy": *DD_PHIL,   "modules": *DD_MOD,   "total": 44 },
+			"Griswold":     { "class": "DE",   "philosophy": *DE_PHIL,   "modules": *DE_MOD,   "total": 28 },
+			"Terror":       { "class": "CM",   "philosophy": *CM_PHIL,   "modules": *CM_MOD,   "total": 6 },
+			"Stingray":     { "class": "SS",   "philosophy": *SS_PHIL,   "modules": *SS_MOD,   "total": 28 }
+		},
+		task_forces: {
+			"CarDiv 10":    { "role": "CARRIER STRIKE GROUP ALPHA", "ship_classes": { "CV": 4, "CA": 6, "CL": 8, "CLAA": 8, "DD": 24 }, "total": 50},
+			"SagDiv 11":    { "role": "SURFACE ACTION GROUP ALPHA", "ship_classes": { "BB": 6, "CA": 3, "CL": 8, "CLAA": 8, "DD": 20 }, "total": 45},
+			"EscortRon 12": { "role": "CONVOY ESCORT GROUP ALPHA",  "ship_classes": { "CVL": 1, "CA": 1, "CL": 1, "CLAA": 1, "DE": 8 }, "total": 12},
+			"MineRon 13":   { "role": "MINELAYING GROUP ALPHA",     "ship_classes": { "CL": 1, "DE": 4, "CM": 6 }, "total": 11},
+			"CruDesRon 14": { "role": "PATROL GROUP ALPHA",         "ship_classes": { "CLAA": 1, "DE": 8 }, "total": 9},
+			"CruDesRon 15": { "role": "PATROL GROUP BRAVO",         "ship_classes": { "CLAA": 1, "DE": 8 }, "total": 9},
+			"SubDiv 16":    { "role": "CONVOY RAIDER GROUP ALPHA",  "ship_classes": { "SS": 14 }, "total": 14},
+			"SubDiv 17":    { "role": "CONVOY RAIDER GROUP BRAVO",  "ship_classes": { "SS": 14 }, "total": 14}
+		},
+		fleet_ship_total: 164
+	},
+	7th_Fleet: {
+		name: "7th Fleet - South Pacific/Philippines",
+		class_totals: {
+			"Essex":        { "class": "CV",   "philosophy": *CV_PHIL,   "modules": *CV_MOD,   "total": 3 },
+			"Baltimore":    { "class": "CA",   "philosophy": *CA_PHIL,   "modules": *CA_MOD,   "total": 4 },
+			"Cleveland":    { "class": "CL",   "philosophy": *CL_PHIL,   "modules": *CL_MOD,   "total": 3 },
+			"Atlanta":      { "class": "CLAA", "philosophy": *CLAA_PHIL, "modules": *CLAA_MOD, "total": 4 },
+			"Winslow":      { "class": "DD",   "philosophy": *DD_PHIL,   "modules": *DD_MOD,   "total": 15 },
+			"Griswold":     { "class": "DE",   "philosophy": *DE_PHIL,   "modules": *DE_MOD,   "total": 8 },
+			"Stingray":     { "class": "SS",   "philosophy": *SS_PHIL,   "modules": *SS_MOD,   "total": 40 }
+		},
+		task_forces: {
+			"CarDiv 70":    { "role": "CARRIER STRIKE GROUP ALPHA", "ship_classes": { "CV": 3, "CA": 4, "CL": 3, "CLAA": 3, "DD": 15 }, "total": 28},
+			"CruDesRon 71": { "role": "PATROL GROUP ALPHA",         "ship_classes": { "CLAA": 1, "DE": 8 }, "total": 9},
+			"SubDiv 72":    { "role": "CONVOY RAIDER GROUP ALPHA",  "ship_classes": { "SS": 20 }, "total": 20},
+			"SubDiv 73":    { "role": "CONVOY RAIDER GROUP BRAVO",  "ship_classes": { "SS": 20 }, "total": 20}
+		},
+		fleet_ship_total: 77
+	}
+},
+Atlantic_Theater: {
+	2nd_Fleet: {
+		name: "2nd Fleet - Atlantic Convoy & Invasion",
+		class_totals: {
+			"Essex":        { "class": "CV",   "philosophy": *CV_PHIL,   "modules": *CV_MOD,   "total": 3 },
+			"Independence": { "class": "CVL",  "philosophy": *CVL_PHIL,  "modules": *CVL_MOD,  "total": 2 },
+			"Iowa":         { "class": "BB",   "philosophy": *BB_PHIL,   "modules": *BB_MOD,   "total": 4 },
+			"Baltimore":    { "class": "CA",   "philosophy": *CA_PHIL,   "modules": *CA_MOD,   "total": 10 },
+			"Cleveland":    { "class": "CL",   "philosophy": *CL_PHIL,   "modules": *CL_MOD,   "total": 15 },
+			"Atlanta":      { "class": "CLAA", "philosophy": *CLAA_PHIL, "modules": *CLAA_MOD, "total": 5 },
+			"Winslow":      { "class": "DD",   "philosophy": *DD_PHIL,   "modules": *DD_MOD,   "total": 43 },
+			"Griswold":     { "class": "DE",   "philosophy": *DE_PHIL,   "modules": *DE_MOD,   "total": 12 },
+			"Stingray":     { "class": "SS",   "philosophy": *SS_PHIL,   "modules": *SS_MOD,   "total": 15 }
+		},
+		task_forces: {
+			"CarDiv 20":    { "role": "CARRIER STRIKE GROUP ALPHA", "ship_classes": { "CV": 3, "CA": 4, "CL": 3, "CLAA": 3, "DD": 15 }, "total": 28},
+			"HuntRon 21":   { "role": "HUNTER-KILLER GROUP ALPHA",  "ship_classes": { "CVL": 2, "CL": 2, "CLAA": 2, "DD": 12, "DE": 12 }, "total": 30},
+			"SagDiv 22":    { "role": "SURFACE ACTION GROUP ALPHA", "ship_classes": { "BB": 4, "CA": 6, "CL": 10, "DD": 16 }, "total": 36},
+			"SubDiv 23":    { "role": "CONVOY RAIDER GROUP ALPHA",  "ship_classes": { "SS": 15 }, "total": 15}
+		},
+		fleet_ship_total: 109
+	}
+},
+Mediterranean_Theater: {
+	6th_Fleet: {
+		name: "6th Fleet - Med Support",
+		class_totals: {
+			"Independence": { "class": "CVL",  "philosophy": *CVL_PHIL,  "modules": *CVL_MOD,  "total": 1 },
+			"Iowa":         { "class": "BB",   "philosophy": *BB_PHIL,   "modules": *BB_MOD,   "total": 2 },
+			"Baltimore":    { "class": "CA",   "philosophy": *CA_PHIL,   "modules": *CA_MOD,   "total": 6 },
+			"Cleveland":    { "class": "CL",   "philosophy": *CL_PHIL,   "modules": *CL_MOD,   "total": 10 },
+			"Atlanta":      { "class": "CLAA", "philosophy": *CLAA_PHIL, "modules": *CLAA_MOD, "total": 2 },
+			"Winslow":      { "class": "DD",   "philosophy": *DD_PHIL,   "modules": *DD_MOD,   "total": 8 },
+			"Griswold":     { "class": "DE",   "philosophy": *DE_PHIL,   "modules": *DE_MOD,   "total": 10 }
+		},
+		task_forces: {
+			"CarDiv 60":    { "role": "CARRIER INVASION GROUP ALPHA", "ship_classes": { "CVL": 1, "CA": 2, "CL": 4, "CLAA": 2, "DE": 10 }, "total": 19},
+			"SagDiv 61":    { "role": "SURFACE ACTION GROUP ALPHA",   "ship_classes": { "BB": 2, "CA": 4, "CL": 6, "DD": 8 }, "total": 20},
+		},
+		fleet_ship_total: 39
+	}
+},
+Home_Theater: {
+	3rd_Fleet: {
+		name: "3rd Fleet - Training & Strategic Reserve",
+		class_totals: {
+			"Essex":        { "class": "CV",   "philosophy": *CV_PHIL,   "modules": *CV_MOD,   "total": 0 },
+			"Independence": { "class": "CVL",  "philosophy": *CVL_PHIL,  "modules": *CVL_MOD,  "total": 0 },
+			"Iowa":         { "class": "BB",   "philosophy": *BB_PHIL,   "modules": *BB_MOD,   "total": 2 },
+			"Baltimore":    { "class": "CA",   "philosophy": *CA_PHIL,   "modules": *CA_MOD,   "total": 6 },
+			"Cleveland":    { "class": "CL",   "philosophy": *CL_PHIL,   "modules": *CL_MOD,   "total": 0 },
+			"Atlanta":      { "class": "CLAA", "philosophy": *CLAA_PHIL, "modules": *CLAA_MOD, "total": 0 },
+			"Winslow":      { "class": "DD",   "philosophy": *DD_PHIL,   "modules": *DD_MOD,   "total": 8 },
+			"Griswold":     { "class": "DE",   "philosophy": *DE_PHIL,   "modules": *DE_MOD,   "total": 0 }
+		},
+		task_forces: {
+			"CarTrain 30":  { "role": "CARRIER TRAINING GROUP ALPHA", "ship_classes": { "CV": 2, "CVL": 2, "CL": 4, "CLAA": 2, "DE": 10 }, "total": 20},
+			"SagTrain 31":  { "role": "SURFACE TRAINING GROUP ALPHA", "ship_classes": { "BB": 4, "CA": 4, "CL": 6, "DD": 16 }, "total": 30},
+		},
+		fleet_ship_total: 50
+	}
+}
