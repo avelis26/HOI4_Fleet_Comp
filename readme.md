@@ -7,8 +7,9 @@ Some of the ship silhouettes are wrong, yes I know. I had trouble finding a good
 Some of the lingo in the references is probably wrong, chose a placeholder for the time that makes sense to me.
 
 
-![screenshot](assets/HOI4_Fleet_Comp_v4.png)
+![screenshot](assets/HOI4_Fleet_Comp_v4_parchment.png)
 
+![screenshot](assets/HOI4_Fleet_Comp_v4_navy.png)
 
 --Prompts
 
