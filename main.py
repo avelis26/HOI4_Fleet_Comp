@@ -402,7 +402,7 @@ def build_html(theaters, ship_classes, aircraft_types, mission_types, css_vars):
 
 def parse_args():
     p = argparse.ArgumentParser(description="Generate HOI4 fleet cheat sheet HTML")
-    p.add_argument("--fleet",      default="config/fleet.json",      help="Path to fleet.json")
+    p.add_argument("--fleet",      default="config/fleet_test.json",      help="Path to fleet.json")
     p.add_argument("--references", default="config/references.json", help="Path to references.json")
     p.add_argument("--theme",      default="config/themes.json",     help="Path to themes.json")
     p.add_argument("--output",     default="cheat_sheet.html",       help="Output HTML filename")

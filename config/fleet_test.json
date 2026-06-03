@@ -1,0 +1,130 @@
+{
+  "theme": "navy",
+  "theaters": [
+    {
+      "name": "Pacific Theater",
+      "fleets": [
+        {
+          "id": "1st_Fleet",
+          "display_column": 1,
+          "name": "1st Fleet - Central Pacific Offensive",
+          "task_forces": [
+            { "id": "Task Force 1", "role": "CARRIER STRIKE GROUP",  "ships": { "CV": 1, "CA": 2, "CL": 3, "DD": 4 } },
+            { "id": "Task Force 2", "role": "SURFACE ACTION GROUP",  "ships": { "BB": 1, "CA": 2, "CL": 3, "DD": 4 } },
+            { "id": "Task Force 3", "role": "CONVOY ESCORT GROUP",   "ships": { "CVL": 1, "CA": 1, "CL": 1, "CLAA": 1, "DE": 8 } }
+          ]
+        },
+        {
+          "id": "5th_Fleet",
+          "display_column": 2,
+          "name": "5th Fleet - South Pacific/Philippines",
+          "task_forces": [
+            { "id": "CarDiv",    "role": "CARRIER STRIKE GROUP ALPHA",  "ships": { "CV": 3, "CA": 4, "CL": 3, "CLAA": 3, "DD": 15 } },
+            { "id": "CruDesRon", "role": "PATROL GROUP ALPHA",          "ships": { "CLAA": 1, "DE": 8 } },
+            { "id": "SubDiv",    "role": "CONVOY RAIDER GROUP ALPHA",   "ships": { "SS": 20 } },
+            { "id": "SubDiv",    "role": "CONVOY RAIDER GROUP BRAVO",   "ships": { "SS": 20 } }
+          ]
+        },
+        {
+          "id": "7th_Fleet",
+          "display_column": 2,
+          "name": "7th Fleet - South Pacific/Philippines",
+          "task_forces": [
+            { "id": "CarDiv",    "role": "CARRIER STRIKE GROUP ALPHA",  "ships": { "CV": 3, "CA": 4, "CL": 3, "CLAA": 3, "DD": 15 } },
+            { "id": "CruDesRon", "role": "PATROL GROUP ALPHA",          "ships": { "CLAA": 1, "DE": 8 } },
+            { "id": "SubDiv",    "role": "CONVOY RAIDER GROUP ALPHA",   "ships": { "SS": 20 } },
+            { "id": "SubDiv",    "role": "CONVOY RAIDER GROUP BRAVO",   "ships": { "SS": 20 } }
+          ]
+        },
+        {
+          "id": "9th_Fleet",
+          "display_column": 2,
+          "name": "9th Fleet - South Pacific/Philippines",
+          "task_forces": [
+            { "id": "CarDiv",    "role": "CARRIER STRIKE GROUP ALPHA",  "ships": { "CV": 3, "CA": 4, "CL": 3, "CLAA": 3, "DD": 15 } },
+            { "id": "CruDesRon", "role": "PATROL GROUP ALPHA",          "ships": { "CLAA": 1, "DE": 8 } },
+            { "id": "SubDiv",    "role": "CONVOY RAIDER GROUP ALPHA",   "ships": { "SS": 20 } },
+            { "id": "SubDiv",    "role": "CONVOY RAIDER GROUP BRAVO",   "ships": { "SS": 20 } }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Atlantic Theater",
+      "fleets": [
+        {
+          "id": "2nd_Fleet",
+          "display_column": 3,
+          "name": "2nd Fleet - Atlantic Convoy & Invasion",
+          "task_forces": [
+            { "id": "CarDiv",  "role": "CARRIER STRIKE GROUP ALPHA",  "ships": { "CV": 3, "CA": 4, "CL": 3, "CLAA": 3, "DD": 15 } },
+            { "id": "HuntRon", "role": "HUNTER-KILLER GROUP ALPHA",   "ships": { "CVL": 2, "CL": 2, "CLAA": 2, "DD": 12, "DE": 12 } },
+            { "id": "SagDiv",  "role": "SURFACE ACTION GROUP ALPHA",  "ships": { "BB": 4, "CA": 6, "CL": 10, "DD": 16 } },
+            { "id": "Wolf Pack Gray",  "role": "CONVOY RAIDER GROUP ALPHA",   "ships": { "SS": 15 } }
+          ]
+        },
+        {
+          "id": "4th_Fleet",
+          "display_column": 3,
+          "name": "4th Fleet - Atlantic Surface & Slappers",
+          "task_forces": [
+            { "id": "CarDiv",  "role": "CARRIER STRIKE GROUP ALPHA",  "ships": { "CV": 3, "CA": 4, "CL": 3, "CLAA": 3, "DD": 15 } },
+            { "id": "HuntRon", "role": "HUNTER-KILLER GROUP ALPHA",   "ships": { "CVL": 2, "CL": 2, "CLAA": 2, "DD": 12, "DE": 12 } },
+            { "id": "SagDiv",  "role": "SURFACE ACTION GROUP ALPHA",  "ships": { "BB": 4, "CA": 6, "CL": 10, "DD": 16 } },
+            { "id": "Wolf Pack Blue",  "role": "CONVOY RAIDER GROUP ALPHA",   "ships": { "SS": 15 } }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Mediterranean Theater",
+      "fleets": [
+        {
+          "id": "6th_Fleet",
+          "display_column": 4,
+          "name": "6th Fleet - Med Support",
+          "task_forces": [
+            { "id": "CarDiv", "role": "CARRIER INVASION GROUP ALPHA", "ships": { "CVL": 1, "CA": 2, "CL": 4, "CLAA": 2, "DE": 10 } },
+            { "id": "SagDiv", "role": "SURFACE ACTION GROUP ALPHA",   "ships": { "BB": 2, "CA": 4, "CL": 6, "DD": 8 } }
+          ]
+        },
+        {
+          "id": "8th_Fleet",
+          "display_column": 4,
+          "name": "8th Fleet - Med Support",
+          "task_forces": [
+            { "id": "CarDiv", "role": "CARRIER INVASION GROUP ALPHA", "ships": { "CVL": 1, "CA": 2, "CL": 4, "CLAA": 2, "DE": 10 } },
+            { "id": "SagDiv", "role": "SURFACE ACTION GROUP ALPHA",   "ships": { "BB": 2, "CA": 4, "CL": 6, "DD": 8 } }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Home Theater",
+      "fleets": [
+        {
+          "id": "3rd_Fleet",
+          "display_column": 4,
+          "name": "3rd Fleet - Training & Strategic Reserve",
+          "task_forces": [
+            { "id": "CarTrain", "role": "CARRIER TRAINING GROUP ALPHA", "ships": { "CV": 2, "CVL": 2, "CL": 4, "CLAA": 2, "DE": 10 } },
+            { "id": "SagTrain", "role": "SURFACE TRAINING GROUP ALPHA", "ships": { "BB": 4, "CA": 4, "CL": 6, "DD": 16 } },
+            { "id": "SagTrain", "role": "PATROL TRAINING GROUP ALPHA", "ships": { "CL": 6, "DD": 16 } },
+            { "id": "SagTrain", "role": "SUBMARINE TRAINING GROUP ALPHA", "ships": { "SS": 20 } }
+          ]
+        },
+        {
+          "id": "11th_Fleet",
+          "display_column": 4,
+          "name": "11th Fleet - Training & Strategic Reserve",
+          "task_forces": [
+            { "id": "CarTrain", "role": "CARRIER TRAINING GROUP ALPHA", "ships": { "CV": 2, "CVL": 2, "CL": 4, "CLAA": 2, "DE": 10 } },
+            { "id": "SagTrain", "role": "SURFACE TRAINING GROUP ALPHA", "ships": { "BB": 4, "CA": 4, "CL": 6, "DD": 16 } },
+            { "id": "SagTrain", "role": "PATROL TRAINING GROUP ALPHA", "ships": { "CL": 6, "DD": 16 } },
+            { "id": "SagTrain", "role": "SUBMARINE TRAINING GROUP ALPHA", "ships": { "SS": 20 } }
+          ]
+        }
+      ]
+    }
+  ]
+}
