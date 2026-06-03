@@ -6,6 +6,16 @@ Some of the ship silhouettes are wrong, yes I know. I had trouble finding a good
 
 Some of the lingo in the references is probably wrong, chose a placeholder for the time that makes sense to me.
 
-![screenshot](assets/HOI4_Fleet_Comp_v4_navy.png)
+![navy](assets/HOI4_Fleet_Comp_v4_navy.png)
 
-![screenshot](assets/HOI4_Fleet_Comp_v4_parchment.png)
+![american](assets/HOI4_Fleet_Comp_v4_american.png)
+
+![code](assets/HOI4_Fleet_Comp_v4_code.png)
+
+![harley](assets/HOI4_Fleet_Comp_v4_harley.png)
+
+![parchment](assets/HOI4_Fleet_Comp_v4_parchment.png)
+
+![patriot](assets/HOI4_Fleet_Comp_v4_patriot.png)
+
+![ranger](assets/HOI4_Fleet_Comp_v4_ranger.png)
