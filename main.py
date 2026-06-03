@@ -381,8 +381,8 @@ def build_html(theaters, ship_classes, aircraft_types, mission_types, css_vars):
 <meta charset="UTF-8">
 <meta name="viewport" content="width=2560">
 <style>
-  {css_root}
   {CSS_TEMPLATE}
+  {css_root}
 </style>
 </head>
 <body>
