@@ -364,7 +364,7 @@ def render_header():
 def render_footer(total):
     today = date.today().isoformat()
     return f"""  <div class="footer">
-    Designed by Graham Pinkston &nbsp;·&nbsp; Coded by Claud.ai &nbsp;·&nbsp; Total Fleet Strength: {total} Ships Across All Theaters &nbsp;·&nbsp; {today}
+    Designed by Graham Pinkston &nbsp;·&nbsp; Coded by https://claude.ai/ &nbsp;·&nbsp; Total Fleet Strength: {total} Ships Across All Theaters &nbsp;·&nbsp; {today}
   </div>"""
 
 def build_html(theaters, ship_classes, aircraft_types, mission_types, css_vars):
