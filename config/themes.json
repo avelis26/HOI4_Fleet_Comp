@@ -49,6 +49,131 @@
         "--card-bg":          "rgba(8,28,58,.85)",
         "--legend-divider":   "rgba(100,180,220,.2)"
       }
+    },
+    {
+      "name": "code",
+      "vars": {
+        "--body-bg":          "#1e1e1e",
+        "--stripe-a":         "rgba(255,255,255,.03)",
+        "--stripe-b":         "rgba(255,255,255,.015)",
+        "--page-bg":          "#252526",
+        "--glow-a":           "rgba(0,122,204,.2)",
+        "--glow-b":           "rgba(0,122,204,.12)",
+        "--text-primary":     "#d4d4d4",
+        "--text-secondary":   "#9cdcfe",
+        "--accent":           "#569cd6",
+        "--heading-shadow":   "rgba(86,156,214,.4)",
+        "--border-primary":   "#3c3c3c",
+        "--border-outline":   "#569cd6",
+        "--border-mid":       "#569cd6",
+        "--border-light":     "#2d2d2d",
+        "--surface-dark":     "#1e1e1e",
+        "--surface-dark-text":"#d4d4d4",
+        "--surface-mid":      "#2d2d2d",
+        "--surface-light":    "rgba(30,30,30,.85)",
+        "--card-bg":          "rgba(37,37,38,.9)",
+        "--legend-divider":   "rgba(128,128,128,.25)"
+      }
+    },
+    {
+      "name": "ranger",
+      "vars": {
+        "--body-bg":          "#0f1a12",
+        "--stripe-a":         "rgba(255,255,255,.02)",
+        "--stripe-b":         "rgba(255,255,255,.01)",
+        "--page-bg":          "#1c2a1f",
+        "--glow-a":           "rgba(90,130,80,.18)",
+        "--glow-b":           "rgba(65,105,55,.13)",
+        "--text-primary":     "#e8f0e8",
+        "--text-secondary":   "#a8c0a8",
+        "--accent":           "#7c9a6f",
+        "--heading-shadow":   "rgba(110,145,90,.35)",
+        "--border-primary":   "#445d3f",
+        "--border-outline":   "#7c9a6f",
+        "--border-mid":       "#6b8a5f",
+        "--border-light":     "#2f3f2c",
+        "--surface-dark":     "#0a140d",
+        "--surface-dark-text":"#d0e0d0",
+        "--surface-mid":      "#1f2e24",
+        "--surface-light":    "rgba(25,40,28,.8)",
+        "--card-bg":          "rgba(20,32,24,.88)",
+        "--legend-divider":   "rgba(110,145,90,.22)"
+      }
+    },
+    {
+      "name": "harley",
+      "vars": {
+        "--body-bg":          "#1c0f14",
+        "--stripe-a":         "rgba(255,20,147,.08)",
+        "--stripe-b":         "rgba(255,20,147,.04)",
+        "--page-bg":          "#2e1822",
+        "--glow-a":           "rgba(255,45,130,.22)",
+        "--glow-b":           "rgba(200,0,100,.15)",
+        "--text-primary":     "#fff0f7",
+        "--text-secondary":   "#ff8ac4",
+        "--accent":           "#ff1493",
+        "--heading-shadow":   "rgba(255,40,120,.45)",
+        "--border-primary":   "#c81e5e",
+        "--border-outline":   "#ff1493",
+        "--border-mid":       "#ff2a8c",
+        "--border-light":     "#4a1f2f",
+        "--surface-dark":     "#14090f",
+        "--surface-dark-text":"#ffe6f2",
+        "--surface-mid":      "#3a1f2b",
+        "--surface-light":    "rgba(60,25,45,.82)",
+        "--card-bg":          "rgba(45,18,32,.9)",
+        "--legend-divider":   "rgba(255,80,160,.25)"
+      }
+    },
+    {
+      "name": "patriot",
+      "vars": {
+        "--body-bg":          "#0a1328",
+        "--stripe-a":         "rgba(255,255,255,.03)",
+        "--stripe-b":         "rgba(255,255,255,.015)",
+        "--page-bg":          "#1a2a4a",
+        "--glow-a":           "rgba(178,34,52,.22)",
+        "--glow-b":           "rgba(0,40,85,.18)",
+        "--text-primary":     "#f0f4fa",
+        "--text-secondary":   "#a8c0e0",
+        "--accent":           "#b91c2c",
+        "--heading-shadow":   "rgba(178,34,52,.4)",
+        "--border-primary":   "#1e4a8a",
+        "--border-outline":   "#b91c2c",
+        "--border-mid":       "#c8102e",
+        "--border-light":     "#1f3a6b",
+        "--surface-dark":     "#050d1f",
+        "--surface-dark-text":"#f0f4fa",
+        "--surface-mid":      "#1f3a6b",
+        "--surface-light":    "rgba(20,35,70,.8)",
+        "--card-bg":          "rgba(15,28,55,.9)",
+        "--legend-divider":   "rgba(178,34,52,.25)"
+      }
+    },
+    {
+      "name": "american",
+      "vars": {
+        "--body-bg":          "#f8f9fc",
+        "--stripe-a":         "rgba(0,0,0,.03)",
+        "--stripe-b":         "rgba(0,0,0,.015)",
+        "--page-bg":          "#ffffff",
+        "--glow-a":           "rgba(178,34,52,.12)",
+        "--glow-b":           "rgba(0,48,135,.12)",
+        "--text-primary":     "#0f172a",
+        "--text-secondary":   "#1e40af",
+        "--accent":           "#b91c2c",
+        "--heading-shadow":   "rgba(178,34,52,.25)",
+        "--border-primary":   "#1e40af",
+        "--border-outline":   "#b91c2c",
+        "--border-mid":       "#c8102e",
+        "--border-light":     "#93a5d1",
+        "--surface-dark":     "#e2e8f5",
+        "--surface-dark-text":"#0f172a",
+        "--surface-mid":      "#f1f5f9",
+        "--surface-light":    "rgba(255,255,255,.85)",
+        "--card-bg":          "rgba(255,255,255,.95)",
+        "--legend-divider":   "rgba(178,34,52,.2)"
+      }
     }
   ]
 }
