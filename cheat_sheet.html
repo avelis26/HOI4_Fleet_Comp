@@ -119,6 +119,7 @@
   }
 
   .bottom-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;}
+  .bottom-row.full-width{grid-template-columns:1fr;}
 
   .loadout-section{border:2px solid var(--border-primary);background:var(--surface-light);padding:12px 14px;}
   .loadout-header{
@@ -155,6 +156,11 @@
   .legend-table td{padding:4px 5px;vertical-align:top;}
   .leg-abbr{font-family:'Oswald',sans-serif;font-weight:700;color:var(--accent);font-size:14px;white-space:nowrap;width:48px;}
   .leg-meaning{color:var(--text-primary);font-size:16px;line-height:1.4;}
+
+  .ship-images{
+    text-align:center;padding:8px 0;margin-bottom:8px;
+    border-bottom:2px double var(--border-primary);
+  }
 
   .footer{
     text-align:center;margin-top:8px;
@@ -383,7 +389,7 @@
     </div>
     </div>
   </div>
-  <div class="bottom-row">
+  <div class="bottom-row class="full-width"">
     <div class="loadout-section">
       <div class="loadout-header">— Ship Module Loadouts —</div>
       <div class="loadout-grid">
@@ -477,39 +483,10 @@
         </div>
       </div>
     </div>
-    <div class="legend-section">
-      <div class="legend-header">— Aircraft &amp; Mission Reference —</div>
-      <div class="legend-grid">
-        <div>
-          <div class="legend-group-title">Aircraft Types</div>
-          <table class="legend-table">
-            <tr><td class="leg-abbr">DB</td><td class="leg-meaning">Dive Bomber&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">Douglas A-20 Havoc</em></td></tr>
-            <tr><td class="leg-abbr">CDB</td><td class="leg-meaning">CV Dive Bomber&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">Douglas SBD-2 Dauntless</em></td></tr>
-            <tr><td class="leg-abbr">FTR</td><td class="leg-meaning">Fighter&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">Curtiss P-40 Warhawk</em></td></tr>
-            <tr><td class="leg-abbr">CVF</td><td class="leg-meaning">CV Fighter&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">Grumman F4F Wildcat</em></td></tr>
-            <tr><td class="leg-abbr">TB</td><td class="leg-meaning">Torpedo Bomber&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">Grumman TBF Avenger</em></td></tr>
-            <tr><td class="leg-abbr">HFTR</td><td class="leg-meaning">Heavy Fighter&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">Republic P-47 Thunderbolt</em></td></tr>
-            <tr><td class="leg-abbr">TAC</td><td class="leg-meaning">Tactical Bomber&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">North American B-25 Mitchell</em></td></tr>
-            <tr><td class="leg-abbr">STR</td><td class="leg-meaning">Strategic Bomber&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">Consolidated B-24 Liberator</em></td></tr>
-            <tr><td class="leg-abbr">HMAR</td><td class="leg-meaning">Heavy Maritime&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">Consolidated PB4Y Liberator</em></td></tr>
-            <tr><td class="leg-abbr">MP</td><td class="leg-meaning">Maritime Patrol&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">Martin PBM Mariner</em></td></tr>
-          </table>
-        </div>
-        <div>
-          <div class="legend-group-title">Mission Types</div>
-          <table class="legend-table">
-            <tr><td class="leg-abbr">AS</td><td class="leg-meaning">Air Superiority&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">FTR's on AS</em></td></tr>
-            <tr><td class="leg-abbr">CAS</td><td class="leg-meaning">Close Air Support&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">DB's on CAS</em></td></tr>
-            <tr><td class="leg-abbr">INT</td><td class="leg-meaning">Interception&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">HFTR's on INT</em></td></tr>
-            <tr><td class="leg-abbr">SB</td><td class="leg-meaning">Strategic Bombing&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">STR's on SB</em></td></tr>
-            <tr><td class="leg-abbr">NS</td><td class="leg-meaning">Naval Strike&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">TB's on NS</em></td></tr>
-            <tr><td class="leg-abbr">PS</td><td class="leg-meaning">Port Strike&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">HMAR's on PS</em></td></tr>
-            <tr><td class="leg-abbr">NP</td><td class="leg-meaning">Naval Patrol&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">MP's on NP</em></td></tr>
-          </table>
-        </div>
-      </div>
-      <div><br /><img src="assets/Essex-Small.png" width="auto" height="48"/>&emsp;&emsp;<img src="assets/Independence-Small.png" width="auto" height="48"/>&emsp;&emsp;<img src="assets/Iowa-Small.png" width="auto" height="48"/>&emsp;&emsp;<img src="assets/Baltimore-Small.png" width="auto" height="48"/>&emsp;&emsp;<img src="assets/Cleveland-Small.png" width="auto" height="48"/>&emsp;&emsp;<img src="assets/Atlanta-Small.png" width="auto" height="50"/>&emsp;&emsp;<img src="assets/Winslow-Small.png" width="auto" height="50"/>&emsp;&emsp;<img src="assets/Griswold-Small.png" width="auto" height="50"/>&emsp;&emsp;<img src="assets/Terror-Small.png" width="auto" height="50"/>&emsp;&emsp;<img src="assets/Stingray-Small.png" width="auto" height="48"/>&emsp;&emsp;</div>
-    </div>
+
+  </div>
+  <div class="ship-images">
+    <img src="assets/Essex-Small.png" width="auto" height="48"/>&emsp;&emsp;<img src="assets/Independence-Small.png" width="auto" height="48"/>&emsp;&emsp;<img src="assets/Iowa-Small.png" width="auto" height="48"/>&emsp;&emsp;<img src="assets/Baltimore-Small.png" width="auto" height="48"/>&emsp;&emsp;<img src="assets/Cleveland-Small.png" width="auto" height="48"/>&emsp;&emsp;<img src="assets/Atlanta-Small.png" width="auto" height="50"/>&emsp;&emsp;<img src="assets/Winslow-Small.png" width="auto" height="50"/>&emsp;&emsp;<img src="assets/Griswold-Small.png" width="auto" height="50"/>&emsp;&emsp;<img src="assets/Terror-Small.png" width="auto" height="50"/>&emsp;&emsp;<img src="assets/Stingray-Small.png" width="auto" height="48"/>&emsp;&emsp;
   </div>
   <div class="footer">
     Designed by Graham Pinkston &nbsp;·&nbsp; Coded by https://claude.ai/ &nbsp;·&nbsp; Total Fleet Strength: 643 Ships Across All Theaters &nbsp;·&nbsp; 2026-06-03
