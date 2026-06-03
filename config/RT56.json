@@ -1,0 +1,126 @@
+{
+  "theme": "navy",
+  "theaters": [
+    {
+      "name": "Pacific Theater",
+      "fleets": [
+        {
+          "id": "1st_Fleet",
+          "display_column": 1,
+          "name": "1st Fleet - Central Pacific Offensive",
+          "task_forces": [
+            { "id": "CarDiv-10",    "role": "CARRIER STRIKE GROUP ALPHA",  "ships": { "CV": 4, "CA": 6, "CL": 8, "CLAA": 8, "DD": 30 } },
+            { "id": "SagDiv-11",    "role": "SURFACE ACTION GROUP ALPHA",  "ships": { "BB": 6, "CA": 3, "CL": 8, "CLAA": 8, "DD": 20 } },
+            { "id": "EscortRon-12", "role": "CONVOY ESCORT GROUP ALPHA",   "ships": { "CVL": 1, "CA": 1, "CL": 1, "CLAA": 1, "DE": 8 } },
+            { "id": "CruDesRon-13", "role": "PATROL GROUP ALPHA",          "ships": { "CLAA": 1, "DE": 8 } },
+            { "id": "CruDesRon-14", "role": "PATROL GROUP BRAVO",          "ships": { "CLAA": 1, "DE": 8 } },
+            { "id": "MineRon-15",   "role": "MINELAYING GROUP ALPHA",      "ships": { "CL": 1, "DE": 4, "CM": 6 } },
+            { "id": "SubDiv-16",    "role": "CONVOY RAIDER GROUP ALPHA",   "ships": { "SS": 14 } },
+            { "id": "SubDiv-17",    "role": "CONVOY RAIDER GROUP BRAVO",   "ships": { "SS": 14 } }
+          ]
+        },
+        {
+          "id": "5th_Fleet",
+          "display_column": 1,
+          "name": "5th Fleet - North Pacific Offensive",
+          "task_forces": [
+            { "id": "CarDiv-50",    "role": "CARRIER STRIKE GROUP ALPHA",  "ships": { "CV": 2, "CA": 2, "CL": 2, "CLAA": 2, "DD": 20 } },
+            { "id": "EscortRon-51", "role": "CONVOY ESCORT GROUP ALPHA",   "ships": { "CVL": 1, "CA": 1, "CL": 1, "CLAA": 1, "DE": 8 } },
+            { "id": "CruDesRon-52", "role": "PATROL GROUP ALPHA",          "ships": { "CLAA": 1, "DE": 8 } },
+            { "id": "CruDesRon-53", "role": "PATROL GROUP BRAVO",          "ships": { "CLAA": 1, "DE": 8 } },
+            { "id": "SubDiv-54",    "role": "CONVOY RAIDER GROUP ALPHA",   "ships": { "SS": 14 } },
+            { "id": "SubDiv-55",    "role": "CONVOY RAIDER GROUP BRAVO",   "ships": { "SS": 14 } },
+            { "id": "SubDiv-56",    "role": "CONVOY RAIDER GROUP CHARLIE", "ships": { "SS": 14 } }
+          ]
+        },
+        {
+          "id": "7th_Fleet",
+          "display_column": 2,
+          "name": "7th Fleet - South Pacific/Philippines",
+          "task_forces": [
+            { "id": "CarDiv-70",    "role": "CARRIER STRIKE GROUP ALPHA",  "ships": { "CV": 3, "CA": 4, "CL": 3, "CLAA": 3, "DD": 15 } },
+            { "id": "CruDesRon-71", "role": "PATROL GROUP ALPHA",          "ships": { "CLAA": 1, "DE": 8 } },
+            { "id": "MineRon-72",   "role": "MINELAYING GROUP ALPHA",      "ships": { "CL": 1, "DE": 4, "CM": 6 } },
+            { "id": "SubDiv-73",    "role": "CONVOY RAIDER GROUP ALPHA",   "ships": { "SS": 20 } },
+            { "id": "SubDiv-74",    "role": "CONVOY RAIDER GROUP BRAVO",   "ships": { "SS": 20 } }
+          ]
+        },
+        {
+          "id": "9th_Fleet",
+          "display_column": 2,
+          "name": "9th Fleet - Pacific Patrol Flotilla",
+          "task_forces": [
+            { "id": "CruDesRon-90", "role": "PATROL GROUP ALPHA",          "ships": { "CLAA": 1, "DE": 8 } },
+            { "id": "CruDesRon-91", "role": "PATROL GROUP BRAVO",          "ships": { "CLAA": 1, "DE": 8 } },
+            { "id": "CruDesRon-92", "role": "PATROL GROUP CHARLIE",        "ships": { "CLAA": 1, "DE": 8 } }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Atlantic Theater",
+      "fleets": [
+        {
+          "id": "2nd_Fleet",
+          "display_column": 2,
+          "name": "2nd Fleet - Atlantic Convoy & Invasion",
+          "task_forces": [
+            { "id": "CarDiv-20",    "role": "CARRIER STRIKE GROUP ALPHA",  "ships": { "CV": 3, "CA": 4, "CL": 3, "CLAA": 3, "DD": 15 } },
+            { "id": "HuntRon-21",   "role": "HUNTER-KILLER GROUP ALPHA",   "ships": { "CVL": 2, "CL": 2, "CLAA": 2, "DD": 12, "DE": 12 } },
+            { "id": "SagDiv-22",    "role": "SURFACE ACTION GROUP ALPHA",  "ships": { "BB": 4, "CA": 6, "CL": 10, "DD": 16 } },
+            { "id": "SubDiv-23",    "role": "CONVOY RAIDER GROUP ALPHA",   "ships": { "SS": 15 } }
+          ]
+        },
+        {
+          "id": "4th_Fleet",
+          "display_column": 3,
+          "name": "4th Fleet - Atlantic Patrol Flotilla",
+          "task_forces": [
+            { "id": "CruDesRon-40", "role": "PATROL GROUP ALPHA",          "ships": { "CLAA": 1, "DE": 8 } },
+            { "id": "CruDesRon-41", "role": "PATROL GROUP BRAVO",          "ships": { "CLAA": 1, "DE": 8 } },
+            { "id": "CruDesRon-42", "role": "PATROL GROUP CHARLIE",        "ships": { "CLAA": 1, "DE": 8 } }
+          ]
+        },
+        {
+          "id": "8th_Fleet",
+          "display_column": 3,
+          "name": "8th Fleet - Central Atlantic Offensive",
+          "task_forces": [
+            { "id": "CruDesRon-80", "role": "PATROL GROUP ALPHA",          "ships": { "CLAA": 1, "DE": 8 } },
+            { "id": "SubDiv-81",    "role": "CONVOY RAIDER GROUP ALPHA",   "ships": { "SS": 15 } },
+            { "id": "SubDiv-82",    "role": "CONVOY RAIDER GROUP ALPHA",   "ships": { "SS": 15 } }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Mediterranean Theater",
+      "fleets": [
+        {
+          "id": "6th_Fleet",
+          "display_column": 4,
+          "name": "6th Fleet - Mediterranean Support",
+          "task_forces": [
+            { "id": "CarDiv-60",    "role": "CARRIER INVASION GROUP ALPHA", "ships": { "CVL": 1, "CA": 2, "CL": 4, "CLAA": 2, "DE": 10 } },
+            { "id": "SagDiv-61",    "role": "SURFACE ACTION GROUP ALPHA",   "ships": { "BB": 2, "CA": 4, "CL": 6, "DD": 8 } },
+            { "id": "EscortRon-62", "role": "CONVOY ESCORT GROUP ALPHA",   "ships": { "CVL": 1, "CA": 1, "CL": 1, "CLAA": 1, "DE": 8 } }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Home Theater",
+      "fleets": [
+        {
+          "id": "3rd_Fleet",
+          "display_column": 4,
+          "name": "3rd Fleet - Training & Strategic Reserve",
+          "task_forces": [
+            { "id": "CarTrain-30",  "role": "CARRIER TRAINING GROUP ALPHA", "ships": { "CV": 1, "CVL": 1, "CL": 2, "CLAA": 2, "DE": 4 } },
+            { "id": "SagTrain-31",  "role": "SURFACE TRAINING GROUP ALPHA", "ships": { "BB": 3, "CA": 4, "CL": 5, "DD": 10 } }
+          ]
+        }
+      ]
+    }
+  ]
+}
