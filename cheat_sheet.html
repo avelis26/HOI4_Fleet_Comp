@@ -119,6 +119,8 @@
   }
 
   .bottom-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;}
+  .bottom-row.full-width{display:block;}
+  .bottom-row.full-width .loadout-section{width:100%}
 
   .loadout-section{border:2px solid var(--border-primary);background:var(--surface-light);padding:12px 14px;}
   .loadout-header{
@@ -127,6 +129,7 @@
     border-bottom:2px double var(--border-primary);padding-bottom:6px;margin-bottom:10px;text-align:center;
   }
   .loadout-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;}
+  .loadout-grid.full-width{grid-template-columns:repeat(10,1fr);}
   .loadout-card{border:1px solid var(--border-mid);background:var(--card-bg);padding:8px 10px;}
   .lc-class{
     font-family:'Oswald',sans-serif;font-weight:700;font-size:16px;
@@ -155,6 +158,11 @@
   .legend-table td{padding:4px 5px;vertical-align:top;}
   .leg-abbr{font-family:'Oswald',sans-serif;font-weight:700;color:var(--accent);font-size:14px;white-space:nowrap;width:48px;}
   .leg-meaning{color:var(--text-primary);font-size:16px;line-height:1.4;}
+
+  .ship-images{
+    text-align:center;padding:8px 0;margin-bottom:8px;
+    border-bottom:2px double var(--border-primary);
+  }
 
   .footer{
     text-align:center;margin-top:8px;
@@ -196,27 +204,27 @@
     <div class="divider">— Made By Graham Pinkston, and don't forget, BUY WAR BONDS! —</div>
   </div>
   <div class="theaters-grid" style="grid-template-columns:1fr 1fr 1fr 0.72fr;">
-    <div style="display:flex;flex-direction:column;gap:16px;">
+
     <div class="theater">
       <div class="theater-header">⚓ Pacific Theater</div>
       <div class="theater-body">
         <div class="fleet">
           <div class="fleet-name">
-            <span class="fleet-total">170 ships</span>
+            <span class="fleet-total">164 ships</span>
             1st Fleet
             <span class="fleet-sub">Central Pacific Offensive</span>
           </div>
           <table class="tf-table">
-            <tr><td class="tf-name">CarDiv-10<span class="tf-role">Carrier Strike Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">CV ×4</span><span class="ship-pill">CA ×6</span><span class="ship-pill">CL ×8</span><span class="ship-pill">CLAA ×8</span><span class="ship-pill">DD ×30</span></td><td class="tf-total-cell">56</td></tr>
-            <tr><td class="tf-name">SagDiv-11<span class="tf-role">Surface Action Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">BB ×6</span><span class="ship-pill">CA ×3</span><span class="ship-pill">CL ×8</span><span class="ship-pill">CLAA ×8</span><span class="ship-pill">DD ×20</span></td><td class="tf-total-cell">45</td></tr>
-            <tr><td class="tf-name">EscortRon-12<span class="tf-role">Convoy Escort Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">CVL ×1</span><span class="ship-pill">CA ×1</span><span class="ship-pill">CL ×1</span><span class="ship-pill">CLAA ×1</span><span class="ship-pill">DE ×8</span></td><td class="tf-total-cell">12</td></tr>
-            <tr><td class="tf-name">CruDesRon-13<span class="tf-role">Patrol Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">CLAA ×1</span><span class="ship-pill">DE ×8</span></td><td class="tf-total-cell">9</td></tr>
-            <tr><td class="tf-name">CruDesRon-14<span class="tf-role">Patrol Grp Bravo</span></td><td class="tf-comp"><span class="ship-pill">CLAA ×1</span><span class="ship-pill">DE ×8</span></td><td class="tf-total-cell">9</td></tr>
-            <tr><td class="tf-name">MineRon-15<span class="tf-role">Minelaying Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">CL ×1</span><span class="ship-pill">DE ×4</span><span class="ship-pill">CM ×6</span></td><td class="tf-total-cell">11</td></tr>
-            <tr><td class="tf-name">SubDiv-16<span class="tf-role">Convoy Raider Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">SS ×14</span></td><td class="tf-total-cell">14</td></tr>
-            <tr><td class="tf-name">SubDiv-17<span class="tf-role">Convoy Raider Grp Bravo</span></td><td class="tf-comp"><span class="ship-pill">SS ×14</span></td><td class="tf-total-cell">14</td></tr>
+            <tr><td class="tf-name">CarDiv 10<span class="tf-role">Carrier Strike Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">CV ×4</span><span class="ship-pill">CA ×6</span><span class="ship-pill">CL ×8</span><span class="ship-pill">CLAA ×8</span><span class="ship-pill">DD ×24</span></td><td class="tf-total-cell">50</td></tr>
+            <tr><td class="tf-name">SagDiv 11<span class="tf-role">Surface Action Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">BB ×6</span><span class="ship-pill">CA ×3</span><span class="ship-pill">CL ×8</span><span class="ship-pill">CLAA ×8</span><span class="ship-pill">DD ×20</span></td><td class="tf-total-cell">45</td></tr>
+            <tr><td class="tf-name">EscortRon 12<span class="tf-role">Convoy Escort Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">CVL ×1</span><span class="ship-pill">CA ×1</span><span class="ship-pill">CL ×1</span><span class="ship-pill">CLAA ×1</span><span class="ship-pill">DE ×8</span></td><td class="tf-total-cell">12</td></tr>
+            <tr><td class="tf-name">MineRon 13<span class="tf-role">Minelaying Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">CL ×1</span><span class="ship-pill">DE ×4</span><span class="ship-pill">CM ×6</span></td><td class="tf-total-cell">11</td></tr>
+            <tr><td class="tf-name">CruDesRon 14<span class="tf-role">Patrol Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">CLAA ×1</span><span class="ship-pill">DE ×8</span></td><td class="tf-total-cell">9</td></tr>
+            <tr><td class="tf-name">CruDesRon 15<span class="tf-role">Patrol Grp Bravo</span></td><td class="tf-comp"><span class="ship-pill">CLAA ×1</span><span class="ship-pill">DE ×8</span></td><td class="tf-total-cell">9</td></tr>
+            <tr><td class="tf-name">SubDiv 16<span class="tf-role">Convoy Raider Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">SS ×14</span></td><td class="tf-total-cell">14</td></tr>
+            <tr><td class="tf-name">SubDiv 17<span class="tf-role">Convoy Raider Grp Bravo</span></td><td class="tf-comp"><span class="ship-pill">SS ×14</span></td><td class="tf-total-cell">14</td></tr>
           </table>
-          <div class="class-totals"><span class="ct-pill">CV ×4</span><span class="ct-pill">CVL ×1</span><span class="ct-pill">BB ×6</span><span class="ct-pill">CA ×10</span><span class="ct-pill">CL ×18</span><span class="ct-pill">CLAA ×19</span><span class="ct-pill">DD ×50</span><span class="ct-pill">DE ×28</span><span class="ct-pill">CM ×6</span><span class="ct-pill">SS ×28</span></div>
+          <div class="class-totals"><span class="ct-pill">CV ×4</span><span class="ct-pill">CVL ×1</span><span class="ct-pill">BB ×6</span><span class="ct-pill">CA ×10</span><span class="ct-pill">CL ×18</span><span class="ct-pill">CLAA ×19</span><span class="ct-pill">DD ×44</span><span class="ct-pill">DE ×28</span><span class="ct-pill">CM ×6</span><span class="ct-pill">SS ×28</span></div>
         </div>
       </div>
     </div>
@@ -226,61 +234,17 @@
       <div class="theater-body">
         <div class="fleet">
           <div class="fleet-name">
-            <span class="fleet-total">100 ships</span>
-            5th Fleet
-            <span class="fleet-sub">North Pacific Offensive</span>
-          </div>
-          <table class="tf-table">
-            <tr><td class="tf-name">CarDiv-50<span class="tf-role">Carrier Strike Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">CV ×2</span><span class="ship-pill">CA ×2</span><span class="ship-pill">CL ×2</span><span class="ship-pill">CLAA ×2</span><span class="ship-pill">DD ×20</span></td><td class="tf-total-cell">28</td></tr>
-            <tr><td class="tf-name">EscortRon-51<span class="tf-role">Convoy Escort Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">CVL ×1</span><span class="ship-pill">CA ×1</span><span class="ship-pill">CL ×1</span><span class="ship-pill">CLAA ×1</span><span class="ship-pill">DE ×8</span></td><td class="tf-total-cell">12</td></tr>
-            <tr><td class="tf-name">CruDesRon-52<span class="tf-role">Patrol Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">CLAA ×1</span><span class="ship-pill">DE ×8</span></td><td class="tf-total-cell">9</td></tr>
-            <tr><td class="tf-name">CruDesRon-53<span class="tf-role">Patrol Grp Bravo</span></td><td class="tf-comp"><span class="ship-pill">CLAA ×1</span><span class="ship-pill">DE ×8</span></td><td class="tf-total-cell">9</td></tr>
-            <tr><td class="tf-name">SubDiv-54<span class="tf-role">Convoy Raider Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">SS ×14</span></td><td class="tf-total-cell">14</td></tr>
-            <tr><td class="tf-name">SubDiv-55<span class="tf-role">Convoy Raider Grp Bravo</span></td><td class="tf-comp"><span class="ship-pill">SS ×14</span></td><td class="tf-total-cell">14</td></tr>
-            <tr><td class="tf-name">SubDiv-56<span class="tf-role">Convoy Raider Grp Charlie</span></td><td class="tf-comp"><span class="ship-pill">SS ×14</span></td><td class="tf-total-cell">14</td></tr>
-          </table>
-          <div class="class-totals"><span class="ct-pill">CV ×2</span><span class="ct-pill">CVL ×1</span><span class="ct-pill">CA ×3</span><span class="ct-pill">CL ×3</span><span class="ct-pill">CLAA ×5</span><span class="ct-pill">DD ×20</span><span class="ct-pill">DE ×24</span><span class="ct-pill">SS ×42</span></div>
-        </div>
-      </div>
-    </div>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:16px;">
-    <div class="theater">
-      <div class="theater-header">⚓ Pacific Theater</div>
-      <div class="theater-body">
-        <div class="fleet">
-          <div class="fleet-name">
-            <span class="fleet-total">88 ships</span>
+            <span class="fleet-total">77 ships</span>
             7th Fleet
             <span class="fleet-sub">South Pacific/Philippines</span>
           </div>
           <table class="tf-table">
-            <tr><td class="tf-name">CarDiv-70<span class="tf-role">Carrier Strike Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">CV ×3</span><span class="ship-pill">CA ×4</span><span class="ship-pill">CL ×3</span><span class="ship-pill">CLAA ×3</span><span class="ship-pill">DD ×15</span></td><td class="tf-total-cell">28</td></tr>
-            <tr><td class="tf-name">CruDesRon-71<span class="tf-role">Patrol Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">CLAA ×1</span><span class="ship-pill">DE ×8</span></td><td class="tf-total-cell">9</td></tr>
-            <tr><td class="tf-name">MineRon-72<span class="tf-role">Minelaying Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">CL ×1</span><span class="ship-pill">DE ×4</span><span class="ship-pill">CM ×6</span></td><td class="tf-total-cell">11</td></tr>
-            <tr><td class="tf-name">SubDiv-73<span class="tf-role">Convoy Raider Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">SS ×20</span></td><td class="tf-total-cell">20</td></tr>
-            <tr><td class="tf-name">SubDiv-74<span class="tf-role">Convoy Raider Grp Bravo</span></td><td class="tf-comp"><span class="ship-pill">SS ×20</span></td><td class="tf-total-cell">20</td></tr>
+            <tr><td class="tf-name">CarDiv 70<span class="tf-role">Carrier Strike Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">CV ×3</span><span class="ship-pill">CA ×4</span><span class="ship-pill">CL ×3</span><span class="ship-pill">CLAA ×3</span><span class="ship-pill">DD ×15</span></td><td class="tf-total-cell">28</td></tr>
+            <tr><td class="tf-name">CruDesRon 71<span class="tf-role">Patrol Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">CLAA ×1</span><span class="ship-pill">DE ×8</span></td><td class="tf-total-cell">9</td></tr>
+            <tr><td class="tf-name">SubDiv 72<span class="tf-role">Convoy Raider Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">SS ×20</span></td><td class="tf-total-cell">20</td></tr>
+            <tr><td class="tf-name">SubDiv 73<span class="tf-role">Convoy Raider Grp Bravo</span></td><td class="tf-comp"><span class="ship-pill">SS ×20</span></td><td class="tf-total-cell">20</td></tr>
           </table>
-          <div class="class-totals"><span class="ct-pill">CV ×3</span><span class="ct-pill">CA ×4</span><span class="ct-pill">CL ×4</span><span class="ct-pill">CLAA ×4</span><span class="ct-pill">DD ×15</span><span class="ct-pill">DE ×12</span><span class="ct-pill">CM ×6</span><span class="ct-pill">SS ×40</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="theater">
-      <div class="theater-header">⚓ Pacific Theater</div>
-      <div class="theater-body">
-        <div class="fleet">
-          <div class="fleet-name">
-            <span class="fleet-total">27 ships</span>
-            9th Fleet
-            <span class="fleet-sub">Pacific Patrol Flotilla</span>
-          </div>
-          <table class="tf-table">
-            <tr><td class="tf-name">CruDesRon-90<span class="tf-role">Patrol Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">CLAA ×1</span><span class="ship-pill">DE ×8</span></td><td class="tf-total-cell">9</td></tr>
-            <tr><td class="tf-name">CruDesRon-91<span class="tf-role">Patrol Grp Bravo</span></td><td class="tf-comp"><span class="ship-pill">CLAA ×1</span><span class="ship-pill">DE ×8</span></td><td class="tf-total-cell">9</td></tr>
-            <tr><td class="tf-name">CruDesRon-92<span class="tf-role">Patrol Grp Charlie</span></td><td class="tf-comp"><span class="ship-pill">CLAA ×1</span><span class="ship-pill">DE ×8</span></td><td class="tf-total-cell">9</td></tr>
-          </table>
-          <div class="class-totals"><span class="ct-pill">CLAA ×3</span><span class="ct-pill">DE ×24</span></div>
+          <div class="class-totals"><span class="ct-pill">CV ×3</span><span class="ct-pill">CA ×4</span><span class="ct-pill">CL ×3</span><span class="ct-pill">CLAA ×4</span><span class="ct-pill">DD ×15</span><span class="ct-pill">DE ×8</span><span class="ct-pill">SS ×40</span></div>
         </div>
       </div>
     </div>
@@ -295,54 +259,14 @@
             <span class="fleet-sub">Atlantic Convoy &amp; Invasion</span>
           </div>
           <table class="tf-table">
-            <tr><td class="tf-name">CarDiv-20<span class="tf-role">Carrier Strike Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">CV ×3</span><span class="ship-pill">CA ×4</span><span class="ship-pill">CL ×3</span><span class="ship-pill">CLAA ×3</span><span class="ship-pill">DD ×15</span></td><td class="tf-total-cell">28</td></tr>
-            <tr><td class="tf-name">HuntRon-21<span class="tf-role">Hunter-Killer Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">CVL ×2</span><span class="ship-pill">CL ×2</span><span class="ship-pill">CLAA ×2</span><span class="ship-pill">DD ×12</span><span class="ship-pill">DE ×12</span></td><td class="tf-total-cell">30</td></tr>
-            <tr><td class="tf-name">SagDiv-22<span class="tf-role">Surface Action Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">BB ×4</span><span class="ship-pill">CA ×6</span><span class="ship-pill">CL ×10</span><span class="ship-pill">DD ×16</span></td><td class="tf-total-cell">36</td></tr>
-            <tr><td class="tf-name">SubDiv-23<span class="tf-role">Convoy Raider Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">SS ×15</span></td><td class="tf-total-cell">15</td></tr>
+            <tr><td class="tf-name">CarDiv 20<span class="tf-role">Carrier Strike Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">CV ×3</span><span class="ship-pill">CA ×4</span><span class="ship-pill">CL ×3</span><span class="ship-pill">CLAA ×3</span><span class="ship-pill">DD ×15</span></td><td class="tf-total-cell">28</td></tr>
+            <tr><td class="tf-name">HuntRon 21<span class="tf-role">Hunter-Killer Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">CVL ×2</span><span class="ship-pill">CL ×2</span><span class="ship-pill">CLAA ×2</span><span class="ship-pill">DD ×12</span><span class="ship-pill">DE ×12</span></td><td class="tf-total-cell">30</td></tr>
+            <tr><td class="tf-name">SagDiv 22<span class="tf-role">Surface Action Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">BB ×4</span><span class="ship-pill">CA ×6</span><span class="ship-pill">CL ×10</span><span class="ship-pill">DD ×16</span></td><td class="tf-total-cell">36</td></tr>
+            <tr><td class="tf-name">SubDiv 23<span class="tf-role">Convoy Raider Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">SS ×15</span></td><td class="tf-total-cell">15</td></tr>
           </table>
           <div class="class-totals"><span class="ct-pill">CV ×3</span><span class="ct-pill">CVL ×2</span><span class="ct-pill">BB ×4</span><span class="ct-pill">CA ×10</span><span class="ct-pill">CL ×15</span><span class="ct-pill">CLAA ×5</span><span class="ct-pill">DD ×43</span><span class="ct-pill">DE ×12</span><span class="ct-pill">SS ×15</span></div>
         </div>
       </div>
-    </div>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:16px;">
-    <div class="theater">
-      <div class="theater-header">⚓ Atlantic Theater</div>
-      <div class="theater-body">
-        <div class="fleet">
-          <div class="fleet-name">
-            <span class="fleet-total">27 ships</span>
-            4th Fleet
-            <span class="fleet-sub">Atlantic Patrol Flotilla</span>
-          </div>
-          <table class="tf-table">
-            <tr><td class="tf-name">CruDesRon-40<span class="tf-role">Patrol Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">CLAA ×1</span><span class="ship-pill">DE ×8</span></td><td class="tf-total-cell">9</td></tr>
-            <tr><td class="tf-name">CruDesRon-41<span class="tf-role">Patrol Grp Bravo</span></td><td class="tf-comp"><span class="ship-pill">CLAA ×1</span><span class="ship-pill">DE ×8</span></td><td class="tf-total-cell">9</td></tr>
-            <tr><td class="tf-name">CruDesRon-42<span class="tf-role">Patrol Grp Charlie</span></td><td class="tf-comp"><span class="ship-pill">CLAA ×1</span><span class="ship-pill">DE ×8</span></td><td class="tf-total-cell">9</td></tr>
-          </table>
-          <div class="class-totals"><span class="ct-pill">CLAA ×3</span><span class="ct-pill">DE ×24</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="theater">
-      <div class="theater-header">⚓ Atlantic Theater</div>
-      <div class="theater-body">
-        <div class="fleet">
-          <div class="fleet-name">
-            <span class="fleet-total">39 ships</span>
-            8th Fleet
-            <span class="fleet-sub">Central Atlantic Offensive</span>
-          </div>
-          <table class="tf-table">
-            <tr><td class="tf-name">CruDesRon-80<span class="tf-role">Patrol Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">CLAA ×1</span><span class="ship-pill">DE ×8</span></td><td class="tf-total-cell">9</td></tr>
-            <tr><td class="tf-name">SubDiv-81<span class="tf-role">Convoy Raider Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">SS ×15</span></td><td class="tf-total-cell">15</td></tr>
-            <tr><td class="tf-name">SubDiv-82<span class="tf-role">Convoy Raider Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">SS ×15</span></td><td class="tf-total-cell">15</td></tr>
-          </table>
-          <div class="class-totals"><span class="ct-pill">CLAA ×1</span><span class="ct-pill">DE ×8</span><span class="ct-pill">SS ×30</span></div>
-        </div>
-      </div>
-    </div>
     </div>
     <div style="display:flex;flex-direction:column;gap:16px;">
     <div class="theater">
@@ -350,16 +274,15 @@
       <div class="theater-body">
         <div class="fleet">
           <div class="fleet-name">
-            <span class="fleet-total">51 ships</span>
+            <span class="fleet-total">39 ships</span>
             6th Fleet
-            <span class="fleet-sub">Mediterranean Support</span>
+            <span class="fleet-sub">Med Support</span>
           </div>
           <table class="tf-table">
-            <tr><td class="tf-name">CarDiv-60<span class="tf-role">Carrier Invasion Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">CVL ×1</span><span class="ship-pill">CA ×2</span><span class="ship-pill">CL ×4</span><span class="ship-pill">CLAA ×2</span><span class="ship-pill">DE ×10</span></td><td class="tf-total-cell">19</td></tr>
-            <tr><td class="tf-name">SagDiv-61<span class="tf-role">Surface Action Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">BB ×2</span><span class="ship-pill">CA ×4</span><span class="ship-pill">CL ×6</span><span class="ship-pill">DD ×8</span></td><td class="tf-total-cell">20</td></tr>
-            <tr><td class="tf-name">EscortRon-62<span class="tf-role">Convoy Escort Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">CVL ×1</span><span class="ship-pill">CA ×1</span><span class="ship-pill">CL ×1</span><span class="ship-pill">CLAA ×1</span><span class="ship-pill">DE ×8</span></td><td class="tf-total-cell">12</td></tr>
+            <tr><td class="tf-name">CarDiv 60<span class="tf-role">Carrier Invasion Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">CVL ×1</span><span class="ship-pill">CA ×2</span><span class="ship-pill">CL ×4</span><span class="ship-pill">CLAA ×2</span><span class="ship-pill">DE ×10</span></td><td class="tf-total-cell">19</td></tr>
+            <tr><td class="tf-name">SagDiv 61<span class="tf-role">Surface Action Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">BB ×2</span><span class="ship-pill">CA ×4</span><span class="ship-pill">CL ×6</span><span class="ship-pill">DD ×8</span></td><td class="tf-total-cell">20</td></tr>
           </table>
-          <div class="class-totals"><span class="ct-pill">CVL ×2</span><span class="ct-pill">BB ×2</span><span class="ct-pill">CA ×7</span><span class="ct-pill">CL ×11</span><span class="ct-pill">CLAA ×3</span><span class="ct-pill">DD ×8</span><span class="ct-pill">DE ×18</span></div>
+          <div class="class-totals"><span class="ct-pill">CVL ×1</span><span class="ct-pill">BB ×2</span><span class="ct-pill">CA ×6</span><span class="ct-pill">CL ×10</span><span class="ct-pill">CLAA ×2</span><span class="ct-pill">DD ×8</span><span class="ct-pill">DE ×10</span></div>
         </div>
       </div>
     </div>
@@ -369,24 +292,24 @@
       <div class="theater-body">
         <div class="fleet">
           <div class="fleet-name">
-            <span class="fleet-total">32 ships</span>
+            <span class="fleet-total">50 ships</span>
             3rd Fleet
             <span class="fleet-sub">Training &amp; Strategic Reserve</span>
           </div>
           <table class="tf-table">
-            <tr><td class="tf-name">CarTrain-30<span class="tf-role">Carrier Training Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">CV ×1</span><span class="ship-pill">CVL ×1</span><span class="ship-pill">CL ×2</span><span class="ship-pill">CLAA ×2</span><span class="ship-pill">DE ×4</span></td><td class="tf-total-cell">10</td></tr>
-            <tr><td class="tf-name">SagTrain-31<span class="tf-role">Surface Training Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">BB ×3</span><span class="ship-pill">CA ×4</span><span class="ship-pill">CL ×5</span><span class="ship-pill">DD ×10</span></td><td class="tf-total-cell">22</td></tr>
+            <tr><td class="tf-name">CarTrain 30<span class="tf-role">Carrier Training Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">CV ×2</span><span class="ship-pill">CVL ×2</span><span class="ship-pill">CL ×4</span><span class="ship-pill">CLAA ×2</span><span class="ship-pill">DE ×10</span></td><td class="tf-total-cell">20</td></tr>
+            <tr><td class="tf-name">SagTrain 31<span class="tf-role">Surface Training Grp Alpha</span></td><td class="tf-comp"><span class="ship-pill">BB ×4</span><span class="ship-pill">CA ×4</span><span class="ship-pill">CL ×6</span><span class="ship-pill">DD ×16</span></td><td class="tf-total-cell">30</td></tr>
           </table>
-          <div class="class-totals"><span class="ct-pill">CV ×1</span><span class="ct-pill">CVL ×1</span><span class="ct-pill">BB ×3</span><span class="ct-pill">CA ×4</span><span class="ct-pill">CL ×7</span><span class="ct-pill">CLAA ×2</span><span class="ct-pill">DD ×10</span><span class="ct-pill">DE ×4</span></div>
+          <div class="class-totals"><span class="ct-pill">CV ×2</span><span class="ct-pill">CVL ×2</span><span class="ct-pill">BB ×4</span><span class="ct-pill">CA ×4</span><span class="ct-pill">CL ×10</span><span class="ct-pill">CLAA ×2</span><span class="ct-pill">DD ×16</span><span class="ct-pill">DE ×10</span></div>
         </div>
       </div>
     </div>
     </div>
   </div>
-  <div class="bottom-row">
+  <div class="bottom-row full-width">
     <div class="loadout-section">
       <div class="loadout-header">— Ship Module Loadouts —</div>
-      <div class="loadout-grid">
+      <div class="loadout-grid full-width">
         <div class="loadout-card"><div class="lc-class">CV — Essex</div>
           <div class="mod-entry"><span class="mod-name">Hangar Decks</span><span class="mod-qty">×6</span></div>
           <div class="mod-entry"><span class="mod-name">Dual Purpose Guns</span><span class="mod-qty">×1</span></div>
@@ -477,42 +400,13 @@
         </div>
       </div>
     </div>
-    <div class="legend-section">
-      <div class="legend-header">— Aircraft &amp; Mission Reference —</div>
-      <div class="legend-grid">
-        <div>
-          <div class="legend-group-title">Aircraft Types</div>
-          <table class="legend-table">
-            <tr><td class="leg-abbr">DB</td><td class="leg-meaning">Dive Bomber&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">Douglas A-20 Havoc</em></td></tr>
-            <tr><td class="leg-abbr">CDB</td><td class="leg-meaning">CV Dive Bomber&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">Douglas SBD-2 Dauntless</em></td></tr>
-            <tr><td class="leg-abbr">FTR</td><td class="leg-meaning">Fighter&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">Curtiss P-40 Warhawk</em></td></tr>
-            <tr><td class="leg-abbr">CVF</td><td class="leg-meaning">CV Fighter&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">Grumman F4F Wildcat</em></td></tr>
-            <tr><td class="leg-abbr">TB</td><td class="leg-meaning">Torpedo Bomber&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">Grumman TBF Avenger</em></td></tr>
-            <tr><td class="leg-abbr">HFTR</td><td class="leg-meaning">Heavy Fighter&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">Republic P-47 Thunderbolt</em></td></tr>
-            <tr><td class="leg-abbr">TAC</td><td class="leg-meaning">Tactical Bomber&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">North American B-25 Mitchell</em></td></tr>
-            <tr><td class="leg-abbr">STR</td><td class="leg-meaning">Strategic Bomber&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">Consolidated B-24 Liberator</em></td></tr>
-            <tr><td class="leg-abbr">HMAR</td><td class="leg-meaning">Heavy Maritime&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">Consolidated PB4Y Liberator</em></td></tr>
-            <tr><td class="leg-abbr">MP</td><td class="leg-meaning">Maritime Patrol&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">Martin PBM Mariner</em></td></tr>
-          </table>
-        </div>
-        <div>
-          <div class="legend-group-title">Mission Types</div>
-          <table class="legend-table">
-            <tr><td class="leg-abbr">AS</td><td class="leg-meaning">Air Superiority&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">FTR's on AS</em></td></tr>
-            <tr><td class="leg-abbr">CAS</td><td class="leg-meaning">Close Air Support&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">DB's on CAS</em></td></tr>
-            <tr><td class="leg-abbr">INT</td><td class="leg-meaning">Interception&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">HFTR's on INT</em></td></tr>
-            <tr><td class="leg-abbr">SB</td><td class="leg-meaning">Strategic Bombing&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">STR's on SB</em></td></tr>
-            <tr><td class="leg-abbr">NS</td><td class="leg-meaning">Naval Strike&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">TB's on NS</em></td></tr>
-            <tr><td class="leg-abbr">PS</td><td class="leg-meaning">Port Strike&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">HMAR's on PS</em></td></tr>
-            <tr><td class="leg-abbr">NP</td><td class="leg-meaning">Naval Patrol&emsp;Ex:&emsp;<em style="font-size:15px;color:var(--text-secondary);">MP's on NP</em></td></tr>
-          </table>
-        </div>
-      </div>
-      <div><br /><img src="assets/Essex-Small.png" width="auto" height="48"/>&emsp;&emsp;<img src="assets/Independence-Small.png" width="auto" height="48"/>&emsp;&emsp;<img src="assets/Iowa-Small.png" width="auto" height="48"/>&emsp;&emsp;<img src="assets/Baltimore-Small.png" width="auto" height="48"/>&emsp;&emsp;<img src="assets/Cleveland-Small.png" width="auto" height="48"/>&emsp;&emsp;<img src="assets/Atlanta-Small.png" width="auto" height="50"/>&emsp;&emsp;<img src="assets/Winslow-Small.png" width="auto" height="50"/>&emsp;&emsp;<img src="assets/Griswold-Small.png" width="auto" height="50"/>&emsp;&emsp;<img src="assets/Terror-Small.png" width="auto" height="50"/>&emsp;&emsp;<img src="assets/Stingray-Small.png" width="auto" height="48"/>&emsp;&emsp;</div>
-    </div>
+
+  </div>
+  <div class="ship-images">
+    <img src="assets/ships/Essex-Large.png" width="auto" height="48"/>&emsp;&emsp;<img src="assets/ships/Independence-Large.png" width="auto" height="48"/>&emsp;&emsp;<img src="assets/ships/Iowa-Large.png" width="auto" height="48"/>&emsp;&emsp;<img src="assets/ships/Baltimore-Large.png" width="auto" height="48"/>&emsp;&emsp;<img src="assets/ships/Cleveland-Large.png" width="auto" height="48"/>&emsp;&emsp;<img src="assets/ships/Atlanta-Large.png" width="auto" height="50"/>&emsp;&emsp;<img src="assets/ships/Winslow-Large.png" width="auto" height="50"/>&emsp;&emsp;<img src="assets/ships/Griswold-Large.png" width="auto" height="50"/>&emsp;&emsp;<img src="assets/ships/Terror-Large.png" width="auto" height="50"/>&emsp;&emsp;<img src="assets/ships/Stingray-Large.png" width="auto" height="48"/>&emsp;&emsp;
   </div>
   <div class="footer">
-    Designed by Graham Pinkston &nbsp;·&nbsp; Coded by https://claude.ai/ &nbsp;·&nbsp; Total Fleet Strength: 643 Ships Across All Theaters &nbsp;·&nbsp; 2026-06-03
+    Designed by Graham Pinkston &nbsp;·&nbsp; Coded by https://claude.ai/ &nbsp;·&nbsp; Total Fleet Strength: 439 Ships &nbsp;·&nbsp; Theme: navy &nbsp;·&nbsp; 2026-06-03
   </div>
 </div>
 </body>

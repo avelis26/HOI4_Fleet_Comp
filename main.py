@@ -3,7 +3,7 @@
 Usage:
   python main.py
   python main.py --fleet config/fleet.json --references config/references.json \
-                 --theme config/themes.json --output cheat_sheet.html
+                 --theme config/themes.json --output cheat_sheet.html --hide-legend
 """
 
 import argparse
@@ -143,11 +143,14 @@ def render_loadout_card(sc):
     )
     return f'        <div class="loadout-card"><div class="lc-class">{header}</div>\n          {mods}\n        </div>'
 
-def render_loadout_section(ship_classes):
+def render_loadout_section(ship_classes, include_legend=True):
     cards = "\n".join(render_loadout_card(sc) for sc in ship_classes)
+
+    grid_class = "loadout-grid" if include_legend else "loadout-grid full-width"
+
     return f"""    <div class="loadout-section">
       <div class="loadout-header">— Ship Module Loadouts —</div>
-      <div class="loadout-grid">
+      <div class="{grid_class}">
 {cards}
       </div>
     </div>"""
@@ -169,11 +172,11 @@ def render_ship_images(ship_classes):
     imgs = []
     for sc in ship_classes:
         h   = 50 if sc["type"] in ("CLAA", "DD", "DE", "CM") else 48
-        src = f'assets/{sc["class_name"]}-Small.png'
+        src = f'assets/ships/{sc["class_name"]}-Large.png'
         imgs.append(f'<img src="{src}" width="auto" height="{h}"/>&emsp;&emsp;')
     return "".join(imgs)
 
-def render_legend_section(aircraft_types, mission_types, ship_classes):
+def render_legend_section(aircraft_types, mission_types):
     return f"""    <div class="legend-section">
       <div class="legend-header">— Aircraft &amp; Mission Reference —</div>
       <div class="legend-grid">
@@ -186,7 +189,6 @@ def render_legend_section(aircraft_types, mission_types, ship_classes):
           {render_legend_table(mission_types)}
         </div>
       </div>
-      <div><br />{render_ship_images(ship_classes)}</div>
     </div>"""
 
 # ── CSS ───────────────────────────────────────────────────────────────────────
@@ -306,6 +308,8 @@ CSS_TEMPLATE = """
   }
 
   .bottom-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;}
+  .bottom-row.full-width{display:block;}
+  .bottom-row.full-width .loadout-section{width:100%}
 
   .loadout-section{border:2px solid var(--border-primary);background:var(--surface-light);padding:12px 14px;}
   .loadout-header{
@@ -314,6 +318,7 @@ CSS_TEMPLATE = """
     border-bottom:2px double var(--border-primary);padding-bottom:6px;margin-bottom:10px;text-align:center;
   }
   .loadout-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;}
+  .loadout-grid.full-width{grid-template-columns:repeat(10,1fr);}
   .loadout-card{border:1px solid var(--border-mid);background:var(--card-bg);padding:8px 10px;}
   .lc-class{
     font-family:'Oswald',sans-serif;font-weight:700;font-size:16px;
@@ -343,6 +348,11 @@ CSS_TEMPLATE = """
   .leg-abbr{font-family:'Oswald',sans-serif;font-weight:700;color:var(--accent);font-size:14px;white-space:nowrap;width:48px;}
   .leg-meaning{color:var(--text-primary);font-size:16px;line-height:1.4;}
 
+  .ship-images{
+    text-align:center;padding:8px 0;margin-bottom:8px;
+    border-bottom:2px double var(--border-primary);
+  }
+
   .footer{
     text-align:center;margin-top:8px;
     border-top:4px double var(--border-primary);padding-top:10px;
@@ -361,19 +371,29 @@ def render_header():
     <div class="divider">— Made By Graham Pinkston, and don't forget, BUY WAR BONDS! —</div>
   </div>"""
 
-def render_footer(total):
+def render_footer(total, ship_classes):
     today = date.today().isoformat()
-    return f"""  <div class="footer">
-    Designed by Graham Pinkston &nbsp;·&nbsp; Coded by https://claude.ai/ &nbsp;·&nbsp; Total Fleet Strength: {total} Ships Across All Theaters &nbsp;·&nbsp; {today}
+    ship_images = render_ship_images(ship_classes)
+    return f"""  <div class="ship-images">
+    {ship_images}
+  </div>
+  <div class="footer">
+    Designed by Graham Pinkston &nbsp;·&nbsp; Coded by https://claude.ai/ &nbsp;·&nbsp; Total Fleet Strength: {total} Ships &nbsp;·&nbsp; Theme: {theme_name} &nbsp;·&nbsp; {today}
   </div>"""
 
-def build_html(theaters, ship_classes, aircraft_types, mission_types, css_vars):
+def build_html(theaters, ship_classes, aircraft_types, mission_types, css_vars, include_legend=True):
     class_order   = [sc["type"] for sc in ship_classes]
     theaters_grid = render_theaters_grid(theaters, class_order)
-    loadout       = render_loadout_section(ship_classes)
-    legend        = render_legend_section(aircraft_types, mission_types, ship_classes)
+    loadout       = render_loadout_section(ship_classes, include_legend=include_legend)
     total         = grand_total(theaters)
     css_root      = render_css_vars(css_vars)
+
+    if include_legend:
+        legend = render_legend_section(aircraft_types, mission_types)
+        bottom_row_class = ""
+    else:
+        legend = ""
+        bottom_row_class = " full-width"
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -389,11 +409,11 @@ def build_html(theaters, ship_classes, aircraft_types, mission_types, css_vars):
 <div class="page">
 {render_header()}
 {theaters_grid}
-  <div class="bottom-row">
+  <div class="bottom-row{bottom_row_class}">
 {loadout}
 {legend}
   </div>
-{render_footer(total)}
+{render_footer(total, ship_classes)}
 </div>
 </body>
 </html>"""
@@ -402,14 +422,16 @@ def build_html(theaters, ship_classes, aircraft_types, mission_types, css_vars):
 
 def parse_args():
     p = argparse.ArgumentParser(description="Generate HOI4 fleet cheat sheet HTML")
-    p.add_argument("--fleet",      default="config/RT56.json",      help="Path to fleet.json")
-    p.add_argument("--references", default="config/references.json", help="Path to references.json")
-    p.add_argument("--theme",      default="config/themes.json",     help="Path to themes.json")
-    p.add_argument("--output",     default="cheat_sheet.html",       help="Output HTML filename")
+    p.add_argument("--fleet",       default="config/fleet.json",      help="Path to fleet.json")
+    p.add_argument("--references",  default="config/references.json", help="Path to references.json")
+    p.add_argument("--theme",       default="config/themes.json",     help="Path to themes.json")
+    p.add_argument("--output",      default="cheat_sheet.html",       help="Output HTML filename")
+    p.add_argument("--hide-legend", default=True, help="Hide the aircraft/mission legend section")
     namespace, _ = p.parse_known_args()
     return namespace
 
 def main():
+    global theme_name
     args       = parse_args()
     fleet_data = load(args.fleet)
     ref_data   = load(args.references)
@@ -422,11 +444,13 @@ def main():
         aircraft_types = ref_data["aircraft_types"],
         mission_types  = ref_data["mission_types"],
         css_vars       = css_vars,
+        include_legend = not args.hide_legend,
     )
 
     write(args.output, html)
     total = grand_total(fleet_data["theaters"])
-    print(f"✓ {args.output} [{theme_name}] — {total} ships across all theaters")
+    legend_status = "no legend" if args.hide_legend else "with legend"
+    print(f"✓ {args.output} [{theme_name}] {legend_status} — {total} ships across all theaters")
 
 if __name__ == "__main__":
     main()
