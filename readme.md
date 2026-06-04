@@ -1,10 +1,13 @@
-20260602 Work In Progress
+_ | ![logo](assets/logos/Logo_Hearts_of_Iron_4.png) | _
+_ | _ | _
+_ | _ | _
+_ | _ | _
 
-The YAML describes your fleet comp, the HTML shows it. Working on a Python script to generate the HTML from the YAML.
+# Hearts Of Iron IV Naval Cheat Sheet Generator
+> Work In Progress
 
-Some of the ship silhouettes are wrong, yes I know. I had trouble finding a good PNG for the Terror class and others.
-
-Some of the lingo in the references is probably wrong, chose a placeholder for the time that makes sense to me.
+##### The YAML describes your fleet comp, the HTML shows it. Working on a Python script to generate the HTML from the YAML.
+#### Some of the lingo in the references is probably wrong, these are placeholders that make sense to me.
 
 ![navy](assets/screenshots/navy_long.png)
 
