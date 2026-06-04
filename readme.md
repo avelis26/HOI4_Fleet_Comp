@@ -11,7 +11,7 @@
 🇺🇸&nbsp;&nbsp;&nbsp;🇺🇸&nbsp;&nbsp;&nbsp;🇺🇸&nbsp;&nbsp;&nbsp;🇺🇸&nbsp;&nbsp;&nbsp;🇺🇸
 </p>
 
-##### I just started building this thing a few days ago so still very much a work in progress. If you have any thoughts or concerns, please feel free to contact me at [graham.pinkston@gmail.com](mailto:graham.pinkston@gmail.com). I'm sure some of the lingo in the references is probably wrong, these are placeholders that make sense to me. I used this <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2943980823" target="_blank" rel="noopener noreferrer">Steam guide</a> as a very helpful reference.
+##### If you have any thoughts or concerns, please feel free to contact me at [graham.pinkston@gmail.com](mailto:graham.pinkston@gmail.com). I'm sure some of the lingo in the references is probably wrong, these are placeholders that make sense to me. I used this <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2943980823" target="_blank" rel="noopener noreferrer">Steam guide</a> as a very helpful reference.
 <br />
 
 Usage:
