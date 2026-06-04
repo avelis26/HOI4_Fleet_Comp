@@ -7,27 +7,50 @@
         {
           "id": "1st_Fleet",
           "display_column": 1,
-          "name": "1st Fleet - Pacific Scouting Force",
+          "name": "1st Fleet - Pacific Scout Force",
           "task_forces": [
-            { "id": "ComCarPac10",  "role": "Carrier Division 4 (Patrol)",    "ships": { "CVE": 1, "CL": 1, "CLAA": 1, "DD": 3 } },
-            { "id": "ComCarPac11",  "role": "Carrier Division 5 (Patrol)",    "ships": { "CVE": 1, "CL": 1, "CLAA": 1, "DD": 3 } },
-            { "id": "ComCarPac12",  "role": "Carrier Division 6 (Patrol)",    "ships": { "CVE": 1, "CL": 1, "CLAA": 1, "DD": 3 } },
-            { "id": "ComDesPac13",  "role": "Destroyer Flotilla 2 (Patrol)",  "ships": { "CL": 1, "DD": 6 } },
-            { "id": "ComDesPac14",  "role": "Destroyer Flotilla 4 (Patrol)",  "ships": { "CL": 1, "DD": 6 } },
-            { "id": "ComDesPac15",  "role": "Destroyer Flotilla 6 (Patrol)",  "ships": { "CL": 1, "DD": 6 } },
-            { "id": "ComDesPac16",  "role": "Destroyer Flotilla 8 (Patrol)",  "ships": { "CL": 1, "DD": 6 } },
-            { "id": "ComDesPac17",  "role": "Destroyer Flotilla 10 (Patrol)", "ships": { "CL": 1, "DD": 6 } }
+            { "id": "EscCarGru10", "role": "Carrier Patrol Group Alpha",   "ships": { "CVE": 1, "CL": 1, "CLAA": 1, "DD": 3, "DE": 1 } },
+            { "id": "EscCarGru11", "role": "Carrier Patrol Group Bravo",   "ships": { "CVE": 1, "CL": 1, "CLAA": 1, "DD": 3, "DE": 1 } },
+            { "id": "EscCarGru12", "role": "Carrier Patrol Group Charlie", "ships": { "CVE": 1, "CL": 1, "CLAA": 1, "DD": 3, "DE": 1 } },
+            { "id": "CruDesGru13", "role": "Destroyer Flotilla Alpha",     "ships": { "CL": 1, "DD": 4, "DE": 1 } },
+            { "id": "CruDesGru14", "role": "Destroyer Flotilla Bravo",     "ships": { "CL": 1, "DD": 4, "DE": 1 } },
+            { "id": "CruDesGru15", "role": "Destroyer Flotilla Charlie",   "ships": { "CL": 1, "DD": 4, "DE": 1 } },
+            { "id": "CruDesGru16", "role": "Destroyer Flotilla Delta",     "ships": { "CL": 1, "DD": 4, "DE": 1 } },
+            { "id": "CruDesGru17", "role": "Destroyer Flotilla Foxtrot",   "ships": { "CL": 1, "DD": 4, "DE": 1 } }
           ]
         },
         {
           "id": "7th_Fleet",
           "display_column": 2,
-          "name": "7th Fleet - South Pacific/Philippines",
+          "name": "7th Fleet - Pacific Strike Force",
           "task_forces": [
-            { "id": "CarDiv 70",    "role": "CARRIER STRIKE GROUP ALPHA",  "ships": { "CV": 3, "CA": 4, "CL": 3, "CLAA": 3, "DD": 15 } },
-            { "id": "CruDesRon 71", "role": "PATROL GROUP ALPHA",          "ships": { "CLAA": 1, "DE": 8 } },
-            { "id": "SubDiv 72",    "role": "CONVOY RAIDER GROUP ALPHA",   "ships": { "SS": 20 } },
-            { "id": "SubDiv 73",    "role": "CONVOY RAIDER GROUP BRAVO",   "ships": { "SS": 20 } }
+            { "id": "ComCarGru70", "role": "Carrier Strike Group Alpha",   "ships": { "CV": 4, "CA": 8, "CLAA": 8, "DD": 16, "DE": 8 } },
+            { "id": "ComCarGru71", "role": "Carrier Strike Group Bravo",   "ships": { "CV": 4, "CA": 8, "CLAA": 8, "DD": 16, "DE": 8 } },
+            { "id": "ComBatGru72", "role": "Surface Strike Group Charlie", "ships": { "BB": 5, "CA": 3, "CLAA": 8, "DD": 12, "DE": 4 } },
+            { "id": "CruDesFor73", "role": "Quick Reaction Force Alpha",   "ships": { "CA": 1, "CLAA": 4, "DD": 8, "DE": 2 } }
+          ]
+        },
+        {
+          "id": "9th_Fleet",
+          "display_column": 2,
+          "name": "9th Fleet - Pacific Raid Force",
+          "task_forces": [
+            { "id": "SubRadGru90", "role": "Submarine Raider Group Alpha",   "ships": { "SS": 12 } },
+            { "id": "SubRadGru91", "role": "Submarine Raider Group Bravo",   "ships": { "SS": 12 } },
+            { "id": "SubRadGru92", "role": "Submarine Raider Group Charlie", "ships": { "SS": 12 } },
+            { "id": "SubRadGru93", "role": "Submarine Raider Group Delta",   "ships": { "SS": 12 } },
+            { "id": "SubRadGru94", "role": "Submarine Raider Group Foxtrot", "ships": { "SS": 12 } },
+            { "id": "DesMinGru95", "role": "SeaMine Layer Group Alpha",      "ships": { "CL": 1, "CM": 6 } }
+          ]
+        },
+        {
+          "id": "11th_Fleet",
+          "display_column": 2,
+          "name": "11th Fleet - Pacific Escort Force",
+          "task_forces": [
+            { "id": "CruDesGru110", "role": "Convoy Escort Group Alpha",   "ships": { "CL": 1, "DE": 3 } },
+            { "id": "CruDesGru111", "role": "Convoy Escort Group Bravo",   "ships": { "CL": 1, "DE": 3 } },
+            { "id": "CruDesGru112", "role": "Convoy Escort Group Charlie", "ships": { "CL": 1, "DE": 3 } }
           ]
         }
       ]
@@ -38,12 +61,16 @@
         {
           "id": "2nd_Fleet",
           "display_column": 3,
-          "name": "2nd Fleet - Atlantic Convoy & Invasion",
+          "name": "2nd Fleet - Atlantic Convoy & Invasion Force",
           "task_forces": [
-            { "id": "CarDiv 20",  "role": "CARRIER STRIKE GROUP ALPHA",  "ships": { "CV": 3, "CA": 4, "CL": 3, "CLAA": 3, "DD": 15 } },
-            { "id": "HuntRon 21", "role": "HUNTER-KILLER GROUP ALPHA",   "ships": { "CVL": 2, "CL": 2, "CLAA": 2, "DD": 12, "DE": 12 } },
-            { "id": "SagDiv 22",  "role": "SURFACE ACTION GROUP ALPHA",  "ships": { "BB": 4, "CA": 6, "CL": 10, "DD": 16 } },
-            { "id": "SubDiv 23",  "role": "CONVOY RAIDER GROUP ALPHA",   "ships": { "SS": 15 } }
+            { "id": "ComCarGru20", "role": "Carrier Strike Group Alpha",   "ships": { "CV": 2, "CA": 4, "CLAA": 4, "DD": 8, "DE": 4 } },
+            { "id": "EscCarGru21", "role": "Carrier Patrol Group Alpha",   "ships": { "CVE": 1, "CL": 1, "CLAA": 1, "DD": 3, "DE": 3 } },
+            { "id": "ComBatGru22", "role": "Surface Strike Group Alpha",   "ships": { "BB": 5, "CA": 3, "CLAA": 8, "DD": 8, "DE": 4 } },
+            { "id": "SubRadGru23", "role": "Submarine Raider Group Alpha", "ships": { "SS": 12 } },
+            { "id": "SubRadGru24", "role": "Submarine Raider Group Bravo", "ships": { "SS": 12 } },
+            { "id": "CruDesGru25", "role": "Convoy Escort Group Alpha",    "ships": { "CL": 1, "DE": 3 } },
+            { "id": "CruDesGru26", "role": "Convoy Escort Group Bravo",    "ships": { "CL": 1, "DE": 3 } },
+            { "id": "DesMinGru27", "role": "SeaMine Layer Group Alpha",    "ships": { "CM": 6 } }
           ]
         }
       ]
@@ -54,10 +81,11 @@
         {
           "id": "6th_Fleet",
           "display_column": 4,
-          "name": "6th Fleet - Med Support",
+          "name": "6th Fleet - Mediterranean Support Force",
           "task_forces": [
-            { "id": "CarDiv 60", "role": "CARRIER INVASION GROUP ALPHA", "ships": { "CVL": 1, "CA": 2, "CL": 4, "CLAA": 2, "DE": 10 } },
-            { "id": "SagDiv 61", "role": "SURFACE ACTION GROUP ALPHA",   "ships": { "BB": 2, "CA": 4, "CL": 6, "DD": 8 } }
+            { "id": "EscCarGru60", "role": "Carrier Patrol Group Alpha",   "ships": { "CVE": 1, "CA": 1, "CL": 1, "CLAA": 4, "DD": 6, "DE": 3 } },
+            { "id": "ComBatGru61", "role": "Surface Strike Group Alpha",   "ships": { "BB": 1, "CA": 2, "CL": 1, "CLAA": 4, "DD": 4, "DE": 4 } },
+            { "id": "SubRadGru23", "role": "Submarine Raider Group Alpha", "ships": { "SS": 12 } }
           ]
         }
       ]
@@ -70,8 +98,10 @@
           "display_column": 4,
           "name": "3rd Fleet - Training & Strategic Reserve",
           "task_forces": [
-            { "id": "CarTrain 30", "role": "CARRIER TRAINING GROUP ALPHA", "ships": { "CV": 2, "CVL": 2, "CL": 4, "CLAA": 2, "DE": 10 } },
-            { "id": "SagTrain 31", "role": "SURFACE TRAINING GROUP ALPHA", "ships": { "BB": 4, "CA": 4, "CL": 6, "DD": 16 } }
+            { "id": "ComCarGru30", "role": "Carrier Strike Group Alpha",   "ships": { "CV": 1, "CA": 2, "CLAA": 2, "DD": 4, "DE": 4 } },
+            { "id": "ComBatGru31", "role": "Surface Strike Group Charlie", "ships": { "BB": 1, "CA": 2, "CLAA": 2, "DD": 4, "DE": 4 } },
+            { "id": "SubRadGru32", "role": "Submarine Raider Group Alpha",   "ships": { "SS": 4 } },
+            { "id": "SubRadGru33", "role": "Submarine Raider Group Bravo",   "ships": { "SS": 4 } }
           ]
         }
       ]

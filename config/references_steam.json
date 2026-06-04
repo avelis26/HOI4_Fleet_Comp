@@ -8,8 +8,9 @@
         { "name": "Hangar Decks",              "qty": 6   },
         { "name": "Dual Purpose Guns",         "qty": 1   },
         { "name": "Anti Air Guns",             "qty": 1   },
-        { "name": "Radar Systems Level",       "qty": 0   },
+        { "name": "Radar Level",               "qty": 0   },
         { "name": "Engine Level",              "qty": 9   },
+        { "name": "Armor Level",               "qty": 0   },
         { "name": "Carrier Fighters",          "qty": 10  },
         { "name": "Carrier Torpedo Bombers",   "qty": 100 },
         { "name": "Carrier Dive Bombers",      "qty": 10  }
@@ -23,8 +24,9 @@
         { "name": "Hangar Decks",            "qty": 2  },
         { "name": "Dual Purpose Guns",       "qty": 1  },
         { "name": "Anti Air Guns",           "qty": 1  },
-        { "name": "Radar Systems Level",     "qty": 9  },
+        { "name": "Radar Level",             "qty": 9  },
         { "name": "Engine Level",            "qty": 9  },
+        { "name": "Armor Level",             "qty": 0  },
         { "name": "Carrier Fighters",        "qty": 10 },
         { "name": "Carrier Torpedo Bombers", "qty": 20 },
         { "name": "Carrier Dive Bombers",    "qty": 10 }
@@ -33,29 +35,29 @@
     {
       "type": "BB",
       "class_name": "Iowa",
-      "philosophy": "Max main battery guns & armor. Radar & fire control. Rest DP and AA. Don't mix with CV's!",
+      "philosophy": "STRIKE | Anti-BB. No radar but max FC. Don't mix with CV's!",
       "modules": [
-        { "name": "Anti Air Guns",              "qty": 5 },
-        { "name": "Heavy Battery Guns",         "qty": 3 },
-        { "name": "Dual Purpose Guns",          "qty": 2 },
-        { "name": "Fire Control Systems Level", "qty": 1 },
-        { "name": "Radar Systems Level",        "qty": 1 },
-        { "name": "Engine Level",               "qty": 1 },
-        { "name": "Armor Level",                "qty": 1 }
+        { "name": "Anti Air Guns",              "qty": 1 },
+        { "name": "Heavy Battery Guns",         "qty": 5 },
+        { "name": "Dual Purpose Guns",          "qty": 4 },
+        { "name": "Radar Level",                "qty": 0 },
+        { "name": "Fire Control Level",         "qty": 9 },
+        { "name": "Engine Level",               "qty": 9 },
+        { "name": "Armor Level",                "qty": 9 }
       ]
     },
     {
       "type": "CA",
       "class_name": "Baltimore",
-      "philosophy": "Max main battery guns & armor. Radar & fire control. Rest DP and AA. Mini BB.",
+      "philosophy": "STRIKE | Max main battery guns & armor. Radar & fire control. Rest DP and AA. Mini BB.",
       "modules": [
         { "name": "Heavy Battery Guns",         "qty": 3 },
-        { "name": "Dual Purpose Guns",          "qty": 2 },
-        { "name": "Anti Air Guns",              "qty": 2 },
-        { "name": "Fire Control Systems Level", "qty": 1 },
-        { "name": "Radar Systems Level",        "qty": 1 },
-        { "name": "Engine Level",               "qty": 1 },
-        { "name": "Armor Level",                "qty": 1 }
+        { "name": "Dual Purpose Guns",          "qty": 3 },
+        { "name": "Anti Air Guns",              "qty": 1 },
+        { "name": "Fire Control Level",         "qty": 9 },
+        { "name": "Radar Level",                "qty": 0 },
+        { "name": "Engine Level",               "qty": 9 },
+        { "name": "Armor Level",                "qty": 9 }
       ]
     },
     {
@@ -67,8 +69,8 @@
         { "name": "Sea Catapults",       "qty": 2 },
         { "name": "Depth Charges",       "qty": 1 },
         { "name": "Light Battery Guns",  "qty": 2 },
-        { "name": "Sonar Systems Level", "qty": 9 },
-        { "name": "Radar Systems Level", "qty": 9 },
+        { "name": "Sonar Level",         "qty": 9 },
+        { "name": "Radar Level",         "qty": 9 },
         { "name": "Engine Level",        "qty": 9 },
         { "name": "Armor Level",         "qty": 0 }
       ]
@@ -76,14 +78,14 @@
     {
       "type": "CLAA",
       "class_name": "Atlanta",
-      "philosophy": "Max AA modules. Radar + fire control. DP for main battery guns to increase AA. So carriers may live.",
+      "philosophy": "SCREEN | Max AA modules. DP for main battery guns to increase AA. 'So carriers may live'.",
       "modules": [
         { "name": "Anti Air Guns",              "qty": 5 },
         { "name": "Dual Purpose Guns",          "qty": 3 },
-        { "name": "Fire Control Systems Level", "qty": 1 },
-        { "name": "Radar Systems Level",        "qty": 1 },
+        { "name": "Fire Control Level",         "qty": 9 },
+        { "name": "Radar Level",                "qty": 0 },
         { "name": "Engine Level",               "qty": 1 },
-        { "name": "Armor Level",                "qty": 1 }
+        { "name": "Armor Level",                "qty": 9 }
       ]
     },
     {
@@ -95,43 +97,46 @@
         { "name": "Torpedo Launchers",      "qty": 2 },
         { "name": "Dual Purpose Guns",      "qty": 2 },
         { "name": "Anti Air Guns",          "qty": 1 },
-        { "name": "Sonar Systems Level",    "qty": 9 },
-        { "name": "Radar Systems Level",    "qty": 9 },
-        { "name": "Engine Level",           "qty": 9 }
+        { "name": "Sonar Level",            "qty": 9 },
+        { "name": "Radar Level",            "qty": 9 },
+        { "name": "Engine Level",           "qty": 9 },
+        { "name": "Armor Level",            "qty": 0 }
       ]
     },
     {
       "type": "DE",
       "class_name": "Griswold",
-      "philosophy": "Max ASW. Radar + sonar. Max range and speed. AA for leftover slots.",
+      "philosophy": "ESCORT | Max ASW. Radar + sonar. Max range and speed. AA for leftover slots.",
       "modules": [
         { "name": "Depth Charge Launchers", "qty": 3 },
         { "name": "Dual Purpose Guns",      "qty": 1 },
         { "name": "Anti Air Guns",          "qty": 1 },
-        { "name": "Sonar Systems Level",    "qty": 1 },
-        { "name": "Radar Systems Level",    "qty": 1 },
         { "name": "Torpedo Launchers",      "qty": 1 },
-        { "name": "Engine Level",           "qty": 1 }
+        { "name": "Sonar Level",            "qty": 9 },
+        { "name": "Radar Level",            "qty": 9 },
+        { "name": "Engine Level",           "qty": 9 },
+        { "name": "Armor Level",            "qty": 0 }
       ]
     },
     {
       "type": "CM",
       "class_name": "Terror",
-      "philosophy": "Max minelaying modules. Radar + sonar. Speed priority.",
+      "philosophy": "RAID | Max minelaying modules. Radar + sonar. Speed priority.",
       "modules": [
         { "name": "Dual Purpose Guns",   "qty": 2 },
         { "name": "Mine Launchers",      "qty": 2 },
         { "name": "Anti Air Guns",       "qty": 1 },
-        { "name": "Sonar Systems Level", "qty": 1 },
-        { "name": "Radar Systems Level", "qty": 1 },
         { "name": "Torpedo Launchers",   "qty": 1 },
-        { "name": "Engine Level",        "qty": 1 }
+        { "name": "Sonar Level",         "qty": 9 },
+        { "name": "Radar Level",         "qty": 9 },
+        { "name": "Engine Level",        "qty": 9 },
+        { "name": "Armor Level",         "qty": 0 }
       ]
     },
     {
       "type": "SS",
       "class_name": "Stingray",
-      "philosophy": "Max torpedo tubes. Snorkel for max stealth. Cruiser sub hull for best range.",
+      "philosophy": "RAID | Max torpedo tubes. Snorkel for max stealth. Cruiser sub hull for best range.",
       "modules": [
         { "name": "Torpedo Launchers",     "qty": 3 },
         { "name": "Snorkel Systems Level", "qty": 1 },
