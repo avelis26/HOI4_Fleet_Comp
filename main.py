@@ -47,6 +47,28 @@ def esc(s):
 def short_role(role):
     return role.title().replace("Group", "")
 
+def get_nato_phonetic_index(name):
+    """Extract NATO phonetic alphabet word from task force name (Alpha, Bravo, etc.)"""
+    nato_words = [
+        "alpha", "bravo", "charlie", "delta", "echo", "foxtrot",
+        "golf", "hotel", "india", "juliet", "kilo", "lima",
+        "mike", "november", "oscar", "papa", "quebec", "romeo",
+        "sierra", "tango", "uniform", "victor", "whiskey", "xray",
+        "yankee", "zulu"
+    ]
+    name_lower = name.lower()
+    for i, word in enumerate(nato_words):
+        if word in name_lower:
+            return i
+    return -1  # Not found
+
+def get_nato_color_class(name):
+    """Return CSS class for NATO phonetic coloring (nato-color-0 through nato-color-25)"""
+    idx = get_nato_phonetic_index(name)
+    if idx >= 0:
+        return f"nato-color-{idx}"
+    return ""
+
 def pill(cls, cnt, css="ship-pill"):
     return f'<span class="{css}">{cls} ×{cnt}</span>'
 
@@ -64,12 +86,60 @@ def render_css_vars(vars_dict):
     lines = "\n  ".join(f"{k}: {v};" for k, v in vars_dict.items())
     return f":root {{\n  {lines}\n}}"
 
+# ── NATO phonetic color palette ────────────────────────────────────────────────
+
+def generate_nato_color_css():
+    """Generate CSS for NATO phonetic alphabet coloring (26 distinct colors)"""
+    # Use a Poisson-disk-like distribution around the hue circle to maximize perceptual distance
+    # Start with evenly spaced hues, then rearrange to maximize color separation
+    hue_order = [
+        0,      # Red
+        120,    # Green
+        200,    # Blue
+        30,     # Orange-Yellow
+        150,    # Cyan-Green
+        270,    # Purple
+        60,     # Yellow
+        180,    # Cyan
+        300,    # Magenta
+        90,     # Yellow-Green
+        210,    # Blue-Cyan
+        330,    # Magenta-Red
+        15,     # Red-Orange
+        135,    # Green-Cyan
+        255,    # Blue-Purple
+        45,     # Orange
+        165,    # Cyan-Green
+        285,    # Purple-Magenta
+        75,     # Yellow-Orange
+        195,    # Blue-Cyan
+        315,    # Magenta-Red
+        10,     # Deep Red
+        130,    # Green
+        250,    # Purple
+        40,     # Orange-Yellow
+        170,    # Cyan
+    ]
+    
+    colors = []
+    for i, hue in enumerate(hue_order):
+        saturation = 78
+        lightness = 48 + (i % 2) * 12  # Alternate between 48% and 60%
+        colors.append(f"hsl({hue}, {saturation}%, {lightness}%)")
+    
+    css_rules = []
+    for i, color in enumerate(colors):
+        css_rules.append(f"  .nato-color-{i} {{ --nato-color: {color}; }}")
+    
+    return "\n".join(css_rules)
+
 # ── task-force / fleet rendering ──────────────────────────────────────────────
 
 def render_tf_row(tf):
     pills = "".join(pill(c, n) for c, n in tf["ships"].items())
+    color_class = get_nato_color_class(tf["role"])
     return (
-        f'<tr>'
+        f'<tr class="{color_class}">'
         f'<td class="tf-name">{short_role(tf["role"])}<span class="tf-role">{tf["id"]}</span></td>'
         f'<td class="tf-comp">{pills}</td>'
         f'<td class="tf-total-cell">{tf_total(tf["ships"])}</td>'
@@ -211,7 +281,7 @@ CSS_TEMPLATE = """
     font-family:'Special Elite',monospace;
     color: var(--text-primary);
     min-height:100vh;
-    padding:18px;
+    padding:14px;
   }
 
   .page{
@@ -221,7 +291,7 @@ CSS_TEMPLATE = """
     outline:2px solid var(--border-outline);
     outline-offset:4px;
     background: var(--page-bg);
-    padding:22px 28px 28px;
+    padding:18px 24px 24px;
     position:relative;
   }
 
@@ -233,7 +303,7 @@ CSS_TEMPLATE = """
     pointer-events:none;
   }
 
-  .header{text-align:center;border-bottom:3px double var(--border-primary);padding-bottom:14px;margin-bottom:18px;}
+  .header{text-align:center;border-bottom:3px double var(--border-primary);padding-bottom:10px;margin-bottom:14px;}
   .header .stars{font-size:16px;letter-spacing:6px;color:var(--accent);margin-bottom:4px;}
   .header h1{
     font-family:'Oswald',sans-serif;font-weight:700;
@@ -253,9 +323,9 @@ CSS_TEMPLATE = """
     background:var(--surface-dark);color:var(--surface-dark-text);
     font-family:'Oswald',sans-serif;font-weight:700;
     font-size:17px;letter-spacing:3px;text-transform:uppercase;
-    text-align:center;padding:7px 8px;border-bottom:2px solid var(--border-outline);
+    text-align:center;padding:3px 4px;border-bottom:2px solid var(--border-outline);
   }
-  .theater-body{padding:10px;}
+  .theater-body{padding:6px;}
 
   .fleet{margin-bottom:12px;}
   .fleet:last-child{margin-bottom:0;}
@@ -263,7 +333,7 @@ CSS_TEMPLATE = """
     font-family:'Oswald',sans-serif;font-weight:600;
     font-size:16px;letter-spacing:2px;text-transform:uppercase;
     color:var(--accent);border-bottom:1px solid var(--border-mid);
-    padding-bottom:4px;margin-bottom:8px;
+    padding-bottom:2px;margin-bottom:4px;
   }
   .fleet-sub{
     font-size:14px;font-family:'IM Fell English',serif;font-style:italic;
@@ -278,11 +348,15 @@ CSS_TEMPLATE = """
   .tf-table{width:100%;border-collapse:collapse;}
   .tf-table tr{border-bottom:1px dotted var(--border-light);}
   .tf-table tr:last-child{border-bottom:none;}
-  .tf-table td{padding:5px 5px;vertical-align:top;line-height:1.35;}
+  .tf-table td{padding:2px 2px;vertical-align:top;line-height:1.35;}
 
   .tf-name{
     font-family:'Oswald',sans-serif;font-weight:900;
     font-size:16px;color:var(--text-primary);white-space:nowrap;width:104px;
+  }
+
+  .tf-table tr[class^="nato-color-"] .tf-name {
+    color: var(--nato-color) !important;
   }
   .tf-role{
     font-size:12.5px;color:var(--text-secondary);font-style:italic;
@@ -302,7 +376,7 @@ CSS_TEMPLATE = """
   }
 
   .class-totals{
-    margin-top:7px;padding-top:6px;
+    margin-top:7px;padding-top:2px;
     border-top:1px solid var(--border-mid);
     display:flex;flex-wrap:wrap;gap:4px;
   }
@@ -316,29 +390,29 @@ CSS_TEMPLATE = """
   .bottom-row.full-width{display:block;}
   .bottom-row.full-width .loadout-section{width:100%}
 
-  .loadout-section{border:2px solid var(--border-primary);background:var(--surface-light);padding:12px 14px;}
+  .loadout-section{border:2px solid var(--border-primary);background:var(--surface-light);padding:8px 10px;}
   .loadout-header{
     font-family:'Oswald',sans-serif;font-weight:700;font-size:17px;
     letter-spacing:3px;text-transform:uppercase;color:var(--text-primary);
-    border-bottom:2px double var(--border-primary);padding-bottom:6px;margin-bottom:10px;text-align:center;
+    border-bottom:2px double var(--border-primary);padding-bottom:2px;margin-bottom:10px;text-align:center;
   }
   .loadout-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;}
   .loadout-grid.full-width{grid-template-columns:repeat(10,1fr);}
-  .loadout-card{border:1px solid var(--border-mid);background:var(--card-bg);padding:8px 10px;}
+  .loadout-card{border:1px solid var(--border-mid);background:var(--card-bg);padding:4px 6px;}
   .lc-class{
     font-family:'Oswald',sans-serif;font-weight:700;font-size:16px;
     color:var(--accent);letter-spacing:1px;border-bottom:1px dotted var(--border-mid);
-    padding-bottom:3px;margin-bottom:6px;
+    padding-bottom:1px;margin-bottom:4px;
   }
   .mod-entry{display:flex;justify-content:space-between;gap:4px;padding:1px 0;}
   .mod-name{font-family:'Oswald',sans-serif;font-weight:600;font-size:13px;color:var(--text-primary);}
   .mod-qty{font-family:'Oswald',sans-serif;font-weight:700;font-size:13px;color:var(--accent);}
 
-  .legend-section{border:2px solid var(--border-primary);background:var(--surface-light);padding:12px 14px;}
+  .legend-section{border:2px solid var(--border-primary);background:var(--surface-light);padding:8px 10px;}
   .legend-header{
     font-family:'Oswald',sans-serif;font-weight:700;font-size:17px;
     letter-spacing:3px;text-transform:uppercase;color:var(--text-primary);
-    border-bottom:2px double var(--border-primary);padding-bottom:6px;margin-bottom:10px;text-align:center;
+    border-bottom:2px double var(--border-primary);padding-bottom:2px;margin-bottom:6px;text-align:center;
   }
   .legend-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
   .legend-group-title{
@@ -349,18 +423,18 @@ CSS_TEMPLATE = """
   .legend-table{width:100%;border-collapse:collapse;}
   .legend-table tr{border-bottom:1px dotted var(--legend-divider);}
   .legend-table tr:last-child{border-bottom:none;}
-  .legend-table td{padding:4px 5px;vertical-align:top;}
+  .legend-table td{padding:2px 4px;vertical-align:top;}
   .leg-abbr{font-family:'Oswald',sans-serif;font-weight:700;color:var(--accent);font-size:14px;white-space:nowrap;width:48px;}
   .leg-meaning{color:var(--text-primary);font-size:16px;line-height:1.4;}
 
   .ship-images{
-    text-align:center;padding:8px 0;margin-bottom:8px;
+    text-align:center;padding:4px 0;margin-bottom:4px;
     border-bottom:2px double var(--border-primary);
   }
 
   .footer{
     text-align:center;margin-top:8px;
-    border-top:4px double var(--border-primary);padding-top:10px;
+    border-top:4px double var(--border-primary);padding-top:6px;
     font-family:'IM Fell English',serif;font-style:italic;
     font-size:18px;color:var(--text-secondary);letter-spacing:1px;
   }
@@ -392,6 +466,7 @@ def build_html(theaters, ship_classes, aircraft_types, mission_types, css_vars, 
     loadout       = render_loadout_section(ship_classes, include_legend=include_legend)
     total         = grand_total(theaters)
     css_root      = render_css_vars(css_vars)
+    nato_colors   = generate_nato_color_css()
 
     if include_legend:
         legend = render_legend_section(aircraft_types, mission_types)
@@ -408,6 +483,7 @@ def build_html(theaters, ship_classes, aircraft_types, mission_types, css_vars, 
 <style>
   {CSS_TEMPLATE}
   {css_root}
+  {nato_colors}
 </style>
 </head>
 <body>
