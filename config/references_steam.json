@@ -1,0 +1,168 @@
+{
+  "ship_classes": [
+    {
+      "type": "CV",
+      "class_name": "Essex",
+      "philosophy": "STRIKE | Max flight decks and speed. No armor. NO Radar.",
+      "modules": [
+        { "name": "Hangar Decks",              "qty": 6   },
+        { "name": "Dual Purpose Guns",         "qty": 1   },
+        { "name": "Anti Air Guns",             "qty": 1   },
+        { "name": "Radar Level",               "qty": 0   },
+        { "name": "Engine Level",              "qty": 9   },
+        { "name": "Armor Level",               "qty": 0   },
+        { "name": "Carrier Fighters",          "qty": 10  },
+        { "name": "Carrier Torpedo Bombers",   "qty": 100 },
+        { "name": "Carrier Dive Bombers",      "qty": 10  }
+      ]
+    },
+    {
+      "type": "CVE",
+      "class_name": "Casablanca",
+      "philosophy": "PATROL | Keep it cheap (under 10k PC). Max spotting / radar mods.",
+      "modules": [
+        { "name": "Hangar Decks",            "qty": 2  },
+        { "name": "Dual Purpose Guns",       "qty": 1  },
+        { "name": "Anti Air Guns",           "qty": 1  },
+        { "name": "Radar Level",             "qty": 9  },
+        { "name": "Engine Level",            "qty": 9  },
+        { "name": "Armor Level",             "qty": 0  },
+        { "name": "Carrier Fighters",        "qty": 10 },
+        { "name": "Carrier Torpedo Bombers", "qty": 20 },
+        { "name": "Carrier Dive Bombers",    "qty": 10 }
+      ]
+    },
+    {
+      "type": "BB",
+      "class_name": "Iowa",
+      "philosophy": "STRIKE | Anti-BB. No radar but max FC. Don't mix with CV's!",
+      "modules": [
+        { "name": "Anti Air Guns",              "qty": 1 },
+        { "name": "Heavy Battery Guns",         "qty": 5 },
+        { "name": "Dual Purpose Guns",          "qty": 4 },
+        { "name": "Radar Level",                "qty": 0 },
+        { "name": "Fire Control Level",         "qty": 9 },
+        { "name": "Engine Level",               "qty": 9 },
+        { "name": "Armor Level",                "qty": 9 }
+      ]
+    },
+    {
+      "type": "CA",
+      "class_name": "Baltimore",
+      "philosophy": "STRIKE | Max main battery guns & armor. Radar & fire control. Rest DP and AA. Mini BB.",
+      "modules": [
+        { "name": "Heavy Battery Guns",         "qty": 3 },
+        { "name": "Dual Purpose Guns",          "qty": 3 },
+        { "name": "Anti Air Guns",              "qty": 1 },
+        { "name": "Fire Control Level",         "qty": 9 },
+        { "name": "Radar Level",                "qty": 0 },
+        { "name": "Engine Level",               "qty": 9 },
+        { "name": "Armor Level",                "qty": 9 }
+      ]
+    },
+    {
+      "type": "CL",
+      "class_name": "Cleveland",
+      "philosophy": "PATROL | Main purpose is light attack. Possible replacement for DD. Don't use torp CL.",
+      "modules": [
+        { "name": "Anti Air Guns",       "qty": 1 },
+        { "name": "Sea Catapults",       "qty": 2 },
+        { "name": "Depth Charges",       "qty": 1 },
+        { "name": "Light Battery Guns",  "qty": 2 },
+        { "name": "Sonar Level",         "qty": 9 },
+        { "name": "Radar Level",         "qty": 9 },
+        { "name": "Engine Level",        "qty": 9 },
+        { "name": "Armor Level",         "qty": 0 }
+      ]
+    },
+    {
+      "type": "CLAA",
+      "class_name": "Atlanta",
+      "philosophy": "SCREEN | Max AA modules. DP for main battery guns to increase AA. 'So carriers may live'.",
+      "modules": [
+        { "name": "Anti Air Guns",              "qty": 5 },
+        { "name": "Dual Purpose Guns",          "qty": 3 },
+        { "name": "Fire Control Level",         "qty": 9 },
+        { "name": "Radar Level",                "qty": 0 },
+        { "name": "Engine Level",               "qty": 1 },
+        { "name": "Armor Level",                "qty": 9 }
+      ]
+    },
+    {
+      "type": "DD",
+      "class_name": "Winslow",
+      "philosophy": "PATROL | MAX Cat/Radar/Sonar for spotting. Needs some teeth. Depth charges if you can fit",
+      "modules": [
+        { "name": "Sea Catapults",          "qty": 1 },
+        { "name": "Torpedo Launchers",      "qty": 2 },
+        { "name": "Dual Purpose Guns",      "qty": 2 },
+        { "name": "Anti Air Guns",          "qty": 1 },
+        { "name": "Sonar Level",            "qty": 9 },
+        { "name": "Radar Level",            "qty": 9 },
+        { "name": "Engine Level",           "qty": 9 },
+        { "name": "Armor Level",            "qty": 0 }
+      ]
+    },
+    {
+      "type": "DE",
+      "class_name": "Griswold",
+      "philosophy": "ESCORT | Max ASW. Radar + sonar. Max range and speed. AA for leftover slots.",
+      "modules": [
+        { "name": "Depth Charge Launchers", "qty": 3 },
+        { "name": "Dual Purpose Guns",      "qty": 1 },
+        { "name": "Anti Air Guns",          "qty": 1 },
+        { "name": "Torpedo Launchers",      "qty": 1 },
+        { "name": "Sonar Level",            "qty": 9 },
+        { "name": "Radar Level",            "qty": 9 },
+        { "name": "Engine Level",           "qty": 9 },
+        { "name": "Armor Level",            "qty": 0 }
+      ]
+    },
+    {
+      "type": "CM",
+      "class_name": "Terror",
+      "philosophy": "RAID | Max minelaying modules. Radar + sonar. Speed priority.",
+      "modules": [
+        { "name": "Dual Purpose Guns",   "qty": 2 },
+        { "name": "Mine Launchers",      "qty": 2 },
+        { "name": "Anti Air Guns",       "qty": 1 },
+        { "name": "Torpedo Launchers",   "qty": 1 },
+        { "name": "Sonar Level",         "qty": 9 },
+        { "name": "Radar Level",         "qty": 9 },
+        { "name": "Engine Level",        "qty": 9 },
+        { "name": "Armor Level",         "qty": 0 }
+      ]
+    },
+    {
+      "type": "SS",
+      "class_name": "Stingray",
+      "philosophy": "RAID | Max torpedo tubes. Snorkel for max stealth. Cruiser sub hull for best range.",
+      "modules": [
+        { "name": "Torpedo Launchers",     "qty": 3 },
+        { "name": "Snorkel Systems Level", "qty": 1 },
+        { "name": "Engine Level",          "qty": 1 }
+      ]
+    }
+  ],
+  "aircraft_types": [
+    { "abbr": "DB",   "name": "Dive Bomber",       "example": "Douglas A-20 Havoc" },
+    { "abbr": "CDB",  "name": "CV Dive Bomber",    "example": "Douglas SBD-2 Dauntless" },
+    { "abbr": "FTR",  "name": "Fighter",           "example": "Curtiss P-40 Warhawk" },
+    { "abbr": "CVF",  "name": "CV Fighter",        "example": "Grumman F4F Wildcat" },
+    { "abbr": "TB",   "name": "Torpedo Bomber",    "example": "Grumman TBF Avenger" },
+    { "abbr": "HFTR", "name": "Heavy Fighter",     "example": "Republic P-47 Thunderbolt" },
+    { "abbr": "TAC",  "name": "Tactical Bomber",   "example": "North American B-25 Mitchell" },
+    { "abbr": "STR",  "name": "Strategic Bomber",  "example": "Consolidated B-24 Liberator" },
+    { "abbr": "HMAR", "name": "Heavy Maritime",    "example": "Consolidated PB4Y Liberator" },
+    { "abbr": "MP",   "name": "Maritime Patrol",   "example": "Martin PBM Mariner" }
+  ],
+  "mission_types": [
+    { "abbr": "AS",  "name": "Air Superiority",   "example": "FTR's on AS" },
+    { "abbr": "CAS", "name": "Close Air Support", "example": "DB's on CAS" },
+    { "abbr": "INT", "name": "Interception",      "example": "HFTR's on INT" },
+    { "abbr": "SB",  "name": "Strategic Bombing", "example": "STR's on SB" },
+    { "abbr": "NS",  "name": "Naval Strike",      "example": "TB's on NS" },
+    { "abbr": "PS",  "name": "Port Strike",       "example": "HMAR's on PS" },
+    { "abbr": "NP",  "name": "Naval Patrol",      "example": "MP's on NP" }
+  ]
+}
