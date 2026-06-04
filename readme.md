@@ -4,7 +4,6 @@
 
 # Naval Fleet Compisition Cheat Sheet Generator (NFCCSG)
 > Work In Progress
-<br />
 
 ### If you're anything like me, you want a great looking cheat sheet on your second monitor to remind you of the fleet you're trying to build in HOI4.
 ### So I got to work vibe coding a python script that could take a JSON document describing your perfect fleet in text,
