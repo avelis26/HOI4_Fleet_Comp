@@ -2,15 +2,17 @@
   <img src="assets/logos/Logo_Hearts_of_Iron_4.png" />
 </p>
 
-
-
-![logo](assets/logos/Logo_Hearts_of_Iron_4.png)
-
-# Hearts Of Iron IV Naval Cheat Sheet Generator
+# Naval Fleet Compisition Cheat Sheet Generator
 > Work In Progress
 
-##### The YAML describes your fleet comp, the HTML shows it. Working on a Python script to generate the HTML from the YAML.
-#### Some of the lingo in the references is probably wrong, these are placeholders that make sense to me.
+<br />
+
+##### If you're anything like me, you want a great looking cheat sheet on your second monitor to remind you of the fleet you're trying to build in HOI4.
+##### So I got to work vibe coding a python script that could take a JSON document describing your perfect fleet in text,
+##### and convert to a themed HTML cheat sheet. You can use for your own reference or share with friends for feedback.
+##### I just started building this thing a few days ago so still very much a work in progress. If you have any thoughts or concerns,
+##### please feel free to contact me at [graham.pinkston@gmail.com](mailto:graham.pinkston@gmail.com).
+#### I'm sure some of the lingo in the references is probably wrong, these are placeholders that make sense to me.
 
 ## Navy (with legend)
 ![navy](assets/screenshots/navy_long.png)
