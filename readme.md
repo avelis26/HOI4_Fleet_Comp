@@ -2,7 +2,7 @@
   <img src="assets/logos/nfccsg3.png" />
 </p>
 
-## N.F.C.C.S.G.
+# N.F.C.C.S.G.
 > Work In Progress
 
 ### If you're anything like me, you want a great looking cheat sheet on your second monitor to remind you of the fleet you're trying to build in HOI4.
@@ -10,6 +10,14 @@
 
 ##### I just started building this thing a few days ago so still very much a work in progress. If you have any thoughts or concerns, please feel free to contact me at [graham.pinkston@gmail.com](mailto:graham.pinkston@gmail.com). I'm sure some of the lingo in the references is probably wrong, these are placeholders that make sense to me.
 <br />
+
+Usage:
+------
+```bash
+python main.py --fleet "config/fleet.json" --references "config/references.json" --theme "config/themes.json" --output "cheat_sheet.html" --hide-legend "True"
+```
+
+### Themes
 
 ## Navy (with legend)
 ![navy](assets/screenshots/navy_long.png)
