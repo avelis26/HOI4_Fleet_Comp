@@ -47,6 +47,28 @@ def esc(s):
 def short_role(role):
     return role.title().replace("Group", "")
 
+def get_nato_phonetic_index(name):
+    """Extract NATO phonetic alphabet word from task force name (Alpha, Bravo, etc.)"""
+    nato_words = [
+        "alpha", "bravo", "charlie", "delta", "echo", "foxtrot",
+        "golf", "hotel", "india", "juliet", "kilo", "lima",
+        "mike", "november", "oscar", "papa", "quebec", "romeo",
+        "sierra", "tango", "uniform", "victor", "whiskey", "xray",
+        "yankee", "zulu"
+    ]
+    name_lower = name.lower()
+    for i, word in enumerate(nato_words):
+        if word in name_lower:
+            return i
+    return -1  # Not found
+
+def get_nato_color_class(name):
+    """Return CSS class for NATO phonetic coloring (nato-color-0 through nato-color-25)"""
+    idx = get_nato_phonetic_index(name)
+    if idx >= 0:
+        return f"nato-color-{idx}"
+    return ""
+
 def pill(cls, cnt, css="ship-pill"):
     return f'<span class="{css}">{cls} ×{cnt}</span>'
 
@@ -64,12 +86,60 @@ def render_css_vars(vars_dict):
     lines = "\n  ".join(f"{k}: {v};" for k, v in vars_dict.items())
     return f":root {{\n  {lines}\n}}"
 
+# ── NATO phonetic color palette ────────────────────────────────────────────────
+
+def generate_nato_color_css():
+    """Generate CSS for NATO phonetic alphabet coloring (26 distinct colors)"""
+    # Use a Poisson-disk-like distribution around the hue circle to maximize perceptual distance
+    # Start with evenly spaced hues, then rearrange to maximize color separation
+    hue_order = [
+        0,      # Red
+        120,    # Green
+        200,    # Blue
+        30,     # Orange-Yellow
+        150,    # Cyan-Green
+        270,    # Purple
+        60,     # Yellow
+        180,    # Cyan
+        300,    # Magenta
+        90,     # Yellow-Green
+        210,    # Blue-Cyan
+        330,    # Magenta-Red
+        15,     # Red-Orange
+        135,    # Green-Cyan
+        255,    # Blue-Purple
+        45,     # Orange
+        165,    # Cyan-Green
+        285,    # Purple-Magenta
+        75,     # Yellow-Orange
+        195,    # Blue-Cyan
+        315,    # Magenta-Red
+        10,     # Deep Red
+        130,    # Green
+        250,    # Purple
+        40,     # Orange-Yellow
+        170,    # Cyan
+    ]
+    
+    colors = []
+    for i, hue in enumerate(hue_order):
+        saturation = 78
+        lightness = 48 + (i % 2) * 12  # Alternate between 48% and 60%
+        colors.append(f"hsl({hue}, {saturation}%, {lightness}%)")
+    
+    css_rules = []
+    for i, color in enumerate(colors):
+        css_rules.append(f"  .nato-color-{i} {{ --nato-color: {color}; }}")
+    
+    return "\n".join(css_rules)
+
 # ── task-force / fleet rendering ──────────────────────────────────────────────
 
 def render_tf_row(tf):
     pills = "".join(pill(c, n) for c, n in tf["ships"].items())
+    color_class = get_nato_color_class(tf["role"])
     return (
-        f'<tr>'
+        f'<tr class="{color_class}">'
         f'<td class="tf-name">{short_role(tf["role"])}<span class="tf-role">{tf["id"]}</span></td>'
         f'<td class="tf-comp">{pills}</td>'
         f'<td class="tf-total-cell">{tf_total(tf["ships"])}</td>'
@@ -284,6 +354,10 @@ CSS_TEMPLATE = """
     font-family:'Oswald',sans-serif;font-weight:900;
     font-size:16px;color:var(--text-primary);white-space:nowrap;width:104px;
   }
+
+  .tf-table tr[class^="nato-color-"] .tf-name {
+    color: var(--nato-color) !important;
+  }
   .tf-role{
     font-size:12.5px;color:var(--text-secondary);font-style:italic;
     display:block;letter-spacing:.3px;line-height:1.25;
@@ -392,6 +466,7 @@ def build_html(theaters, ship_classes, aircraft_types, mission_types, css_vars, 
     loadout       = render_loadout_section(ship_classes, include_legend=include_legend)
     total         = grand_total(theaters)
     css_root      = render_css_vars(css_vars)
+    nato_colors   = generate_nato_color_css()
 
     if include_legend:
         legend = render_legend_section(aircraft_types, mission_types)
@@ -408,6 +483,7 @@ def build_html(theaters, ship_classes, aircraft_types, mission_types, css_vars, 
 <style>
   {CSS_TEMPLATE}
   {css_root}
+  {nato_colors}
 </style>
 </head>
 <body>
