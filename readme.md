@@ -6,9 +6,9 @@
 > Work In Progress
 <br />
 
-##### If you're anything like me, you want a great looking cheat sheet on your second monitor to remind you of the fleet you're trying to build in HOI4.
-##### So I got to work vibe coding a python script that could take a JSON document describing your perfect fleet in text,
-##### and export a themed HTML cheat sheet. Presenting NFCCSG, now you can share your based fleet comp with friends in 8 lovely themes.
+### If you're anything like me, you want a great looking cheat sheet on your second monitor to remind you of the fleet you're trying to build in HOI4.
+### So I got to work vibe coding a python script that could take a JSON document describing your perfect fleet in text,
+### and export a themed HTML cheat sheet. Presenting NFCCSG, now you can share your based fleet comp with friends in 8 lovely themes.
 <br />
 
 ### I just started building this thing a few days ago so still very much a work in progress. If you have any thoughts or concerns,
