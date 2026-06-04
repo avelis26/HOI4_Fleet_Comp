@@ -1,0 +1,30 @@
+{
+  "ship_classes": [
+    {
+      "type": "_insert_class_abbr_1_",
+      "class_name": "_insert_class_name_1_",
+      "philosophy": "_insert_class_loadout_philosophy_1_",
+      "modules": [
+        { "name": "_insert_module_name_1_",    "qty": 1  },
+        { "name": "_insert_module_name_2_",    "qty": 1  }
+      ]
+    },
+    {
+      "type": "_insert_class_abbr_2_",
+      "class_name": "_insert_class_name_2_",
+      "philosophy": "_insert_class_loadout_philosophy_2_",
+      "modules": [
+        { "name": "_insert_module_name_1_",    "qty": 1  },
+        { "name": "_insert_module_name_2_",    "qty": 1  }
+      ]
+    }
+  ],
+  "aircraft_types": [
+    { "abbr": "_insert_aircraft_abbr_1_",   "name": "_insert_aircraft_name_1_",       "example": "_insert_aircraft_example_1_" },
+    { "abbr": "_insert_aircraft_abbr_2_",   "name": "_insert_aircraft_name_2_",       "example": "_insert_aircraft_example_2_" }
+  ],
+  "mission_types": [
+    { "abbr": "_insert_mission_abbr_1_",   "name": "_insert_mission_name_1_",       "example": "_insert_mission_example_1_" },
+    { "abbr": "_insert_mission_abbr_2_",   "name": "_insert_mission_name_2_",       "example": "_insert_mission_example_2_" }
+  ]
+}
