@@ -1,7 +1,10 @@
-_ | ![logo](assets/logos/Logo_Hearts_of_Iron_4.png) | _
-_ | _ | _
-_ | _ | _
-_ | _ | _
+<p align="center">
+  <img src="assets/logos/Logo_Hearts_of_Iron_4.png" />
+</p>
+
+
+
+![logo](assets/logos/Logo_Hearts_of_Iron_4.png)
 
 # Hearts Of Iron IV Naval Cheat Sheet Generator
 > Work In Progress
