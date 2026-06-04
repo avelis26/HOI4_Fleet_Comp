@@ -8,7 +8,7 @@
 ### If you're anything like me, you want a great looking cheat sheet on your second monitor to remind you of the fleet you're trying to build in HOI4.
 ### So I got to work vibe coding a python script that could take a `JSON` document describing your perfect fleet in text, and export a themed HTML cheat sheet. Presenting _NFCCSG_, now you can share your based fleet comp with friends in 8 lovely themes.
 <p align="center">
-🇺🇸&nbsp;&nbsp;&nbsp;🇺🇸&nbsp;&nbsp;&nbsp;🇺🇸&nbsp;&nbsp;&nbsp;🇺🇸&nbsp;&nbsp;&nbsp;🇺🇸
+🇺🇸&nbsp;🇺🇸&nbsp;🇺🇸&nbsp;🇺🇸&nbsp;🇺🇸
 </p>
 
 ##### If you have any thoughts or concerns, please feel free to contact me at [graham.pinkston@gmail.com](mailto:graham.pinkston@gmail.com). I'm sure some of the lingo in the references is probably wrong, these are placeholders that make sense to me. I used this <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2943980823" target="_blank" rel="noopener noreferrer">Steam guide</a> as a very helpful reference.
@@ -16,6 +16,10 @@
 
 Usage:
 ------
+
+> [!TIP]
+> Don't forget `display_column` in the config file controls the fleet column layout.
+
 ```bash
 python main.py --fleet "config/fleet.json" --references "config/references.json" --theme "config/themes.json" --output "cheat_sheet.html" --hide-legend "True"
 ```

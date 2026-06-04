@@ -21,7 +21,7 @@
         },
         {
           "id": "7th_Fleet",
-          "display_column": 2,
+          "display_column": 1,
           "name": "7th Fleet - Pacific Strike Force",
           "task_forces": [
             { "id": "ComCarGru70", "role": "Carrier Strike Group Alpha",   "ships": { "CV": 4, "CA": 8, "CLAA": 8, "DD": 16, "DE": 8 } },

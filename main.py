@@ -45,7 +45,7 @@ def esc(s):
     return s.replace("&", "&amp;")
 
 def short_role(role):
-    return role.title().replace("Group", "Grp")
+    return role.title().replace("Group", "")
 
 def pill(cls, cnt, css="ship-pill"):
     return f'<span class="{css}">{cls} ×{cnt}</span>'
@@ -70,7 +70,7 @@ def render_tf_row(tf):
     pills = "".join(pill(c, n) for c, n in tf["ships"].items())
     return (
         f'<tr>'
-        f'<td class="tf-name">{tf["id"]}<span class="tf-role">{short_role(tf["role"])}</span></td>'
+        f'<td class="tf-name">{short_role(tf["role"])}<span class="tf-role">{tf["id"]}</span></td>'
         f'<td class="tf-comp">{pills}</td>'
         f'<td class="tf-total-cell">{tf_total(tf["ships"])}</td>'
         f'</tr>'
