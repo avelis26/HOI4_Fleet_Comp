@@ -198,6 +198,11 @@ CSS_TEMPLATE = """
 
   *{box-sizing:border-box;margin:0;padding:0;}
 
+  a:link{
+    color: var(--accent);
+    background-color: transparent;
+    text-decoration: none;
+  }
   body{
     background: var(--body-bg);
     background-image:
@@ -378,7 +383,7 @@ def render_footer(total, ship_classes):
     {ship_images}
   </div>
   <div class="footer">
-    Designed by Graham Pinkston &nbsp;·&nbsp; Coded by https://claude.ai/ &nbsp;·&nbsp; Total Fleet Strength: {total} Ships &nbsp;·&nbsp; Theme: {theme_name} &nbsp;·&nbsp; {today}
+    Designed by Graham Pinkston &nbsp;·&nbsp; Vibe-Coded with <a href="https://claude.ai/">claude.ai</a> &nbsp;·&nbsp; Total Fleet Strength: {total} Ships &nbsp;·&nbsp; Theme: {theme_name} &nbsp;·&nbsp; ℠{today}
   </div>"""
 
 def build_html(theaters, ship_classes, aircraft_types, mission_types, css_vars, include_legend=True):
