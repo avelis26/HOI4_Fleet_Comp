@@ -20,31 +20,31 @@ python main.py --fleet "config/fleet.json" --references "config/references.json"
 
 # Themes
 
-## Navy (with legend)
+### Navy (with legend)
 ![navy](assets/screenshots/navy_long.png)
 
-## Navy (without legend)
+### Navy (without legend)
 ![navy](assets/screenshots/navy_short.png)
 
-## American (without legend)
+### American (without legend)
 ![american](assets/screenshots/american_short.png)
 
-## Code (without legend)
+### Code (without legend)
 ![code](assets/screenshots/code_short.png)
 
-## Harley (without legend)
+### Harley (without legend)
 ![harley](assets/screenshots/harley_short.png)
 
-## Parchment (without legend)
+### Parchment (without legend)
 ![parchment](assets/screenshots/parchment_short.png)
 
-## Patriot (without legend)
+### Patriot (without legend)
 ![patriot](assets/screenshots/patriot_short.png)
 
-## Pink (without legend)
+### Pink (without legend)
 ![pink](assets/screenshots/pink_short.png)
 
-## Ranger (without legend)
+### Ranger (without legend)
 ![ranger](assets/screenshots/ranger_short.png)
 
 <p align="center">
