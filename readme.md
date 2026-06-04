@@ -17,6 +17,7 @@ Usage:
 python main.py --fleet "config/fleet.json" --references "config/references.json" --theme "config/themes.json" --output "cheat_sheet.html" --hide-legend "True"
 ```
 <br />
+
 # Themes
 
 ## Navy (with legend)
