@@ -143,11 +143,14 @@ def render_loadout_card(sc):
     )
     return f'        <div class="loadout-card"><div class="lc-class">{header}</div>\n          {mods}\n        </div>'
 
-def render_loadout_section(ship_classes):
+def render_loadout_section(ship_classes, include_legend=True):
     cards = "\n".join(render_loadout_card(sc) for sc in ship_classes)
+
+    grid_class = "loadout-grid" if include_legend else "loadout-grid full-width"
+
     return f"""    <div class="loadout-section">
       <div class="loadout-header">— Ship Module Loadouts —</div>
-      <div class="loadout-grid">
+      <div class="{grid_class}">
 {cards}
       </div>
     </div>"""
@@ -169,7 +172,7 @@ def render_ship_images(ship_classes):
     imgs = []
     for sc in ship_classes:
         h   = 50 if sc["type"] in ("CLAA", "DD", "DE", "CM") else 48
-        src = f'assets/{sc["class_name"]}-Small.png'
+        src = f'assets/ships/{sc["class_name"]}-Large.png'
         imgs.append(f'<img src="{src}" width="auto" height="{h}"/>&emsp;&emsp;')
     return "".join(imgs)
 
@@ -305,7 +308,8 @@ CSS_TEMPLATE = """
   }
 
   .bottom-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;}
-  .bottom-row.full-width{grid-template-columns:1fr;}
+  .bottom-row.full-width{display:block;}
+  .bottom-row.full-width .loadout-section{width:100%}
 
   .loadout-section{border:2px solid var(--border-primary);background:var(--surface-light);padding:12px 14px;}
   .loadout-header{
@@ -314,6 +318,7 @@ CSS_TEMPLATE = """
     border-bottom:2px double var(--border-primary);padding-bottom:6px;margin-bottom:10px;text-align:center;
   }
   .loadout-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;}
+  .loadout-grid.full-width{grid-template-columns:repeat(10,1fr);}
   .loadout-card{border:1px solid var(--border-mid);background:var(--card-bg);padding:8px 10px;}
   .lc-class{
     font-family:'Oswald',sans-serif;font-weight:700;font-size:16px;
@@ -373,13 +378,13 @@ def render_footer(total, ship_classes):
     {ship_images}
   </div>
   <div class="footer">
-    Designed by Graham Pinkston &nbsp;·&nbsp; Coded by https://claude.ai/ &nbsp;·&nbsp; Total Fleet Strength: {total} Ships Across All Theaters &nbsp;·&nbsp; {today}
+    Designed by Graham Pinkston &nbsp;·&nbsp; Coded by https://claude.ai/ &nbsp;·&nbsp; Total Fleet Strength: {total} Ships &nbsp;·&nbsp; Theme: {theme_name} &nbsp;·&nbsp; {today}
   </div>"""
 
 def build_html(theaters, ship_classes, aircraft_types, mission_types, css_vars, include_legend=True):
     class_order   = [sc["type"] for sc in ship_classes]
     theaters_grid = render_theaters_grid(theaters, class_order)
-    loadout       = render_loadout_section(ship_classes)
+    loadout       = render_loadout_section(ship_classes, include_legend=include_legend)
     total         = grand_total(theaters)
     css_root      = render_css_vars(css_vars)
 
@@ -388,7 +393,7 @@ def build_html(theaters, ship_classes, aircraft_types, mission_types, css_vars, 
         bottom_row_class = ""
     else:
         legend = ""
-        bottom_row_class = ' class="full-width"'
+        bottom_row_class = " full-width"
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -417,7 +422,7 @@ def build_html(theaters, ship_classes, aircraft_types, mission_types, css_vars, 
 
 def parse_args():
     p = argparse.ArgumentParser(description="Generate HOI4 fleet cheat sheet HTML")
-    p.add_argument("--fleet",       default="config/RT56.json",      help="Path to fleet.json")
+    p.add_argument("--fleet",       default="config/fleet.json",      help="Path to fleet.json")
     p.add_argument("--references",  default="config/references.json", help="Path to references.json")
     p.add_argument("--theme",       default="config/themes.json",     help="Path to themes.json")
     p.add_argument("--output",      default="cheat_sheet.html",       help="Output HTML filename")
@@ -426,6 +431,7 @@ def parse_args():
     return namespace
 
 def main():
+    global theme_name
     args       = parse_args()
     fleet_data = load(args.fleet)
     ref_data   = load(args.references)

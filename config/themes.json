@@ -1,31 +1,6 @@
 {
   "themes": [
     {
-      "name": "parchment",
-      "vars": {
-        "--body-bg":          "#c8b89a",
-        "--stripe-a":         "rgba(0,0,0,.03)",
-        "--stripe-b":         "rgba(0,0,0,.02)",
-        "--page-bg":          "#e8dfc8",
-        "--glow-a":           "rgba(180,140,80,.13)",
-        "--glow-b":           "rgba(100,60,20,.10)",
-        "--text-primary":     "#1a1208",
-        "--text-secondary":   "#5c3d11",
-        "--accent":           "#8b3a0f",
-        "--heading-shadow":   "#c8a06a",
-        "--border-primary":   "#5c3d11",
-        "--border-outline":   "#8b6533",
-        "--border-mid":       "#a07840",
-        "--border-light":     "#b09060",
-        "--surface-dark":     "#2a1a05",
-        "--surface-dark-text":"#e8d5a0",
-        "--surface-mid":      "#5c3d11",
-        "--surface-light":    "rgba(255,248,230,.55)",
-        "--card-bg":          "rgba(240,228,200,.7)",
-        "--legend-divider":   "rgba(92,61,17,.3)"
-      }
-    },
-    {
       "name": "navy",
       "vars": {
         "--body-bg":          "#0a1628",
@@ -48,6 +23,31 @@
         "--surface-light":    "rgba(5,20,50,.75)",
         "--card-bg":          "rgba(8,28,58,.85)",
         "--legend-divider":   "rgba(100,180,220,.2)"
+      }
+    },
+    {
+      "name": "parchment",
+      "vars": {
+        "--body-bg":          "#c8b89a",
+        "--stripe-a":         "rgba(0,0,0,.03)",
+        "--stripe-b":         "rgba(0,0,0,.02)",
+        "--page-bg":          "#e8dfc8",
+        "--glow-a":           "rgba(180,140,80,.13)",
+        "--glow-b":           "rgba(100,60,20,.10)",
+        "--text-primary":     "#1a1208",
+        "--text-secondary":   "#5c3d11",
+        "--accent":           "#8b3a0f",
+        "--heading-shadow":   "#c8a06a",
+        "--border-primary":   "#5c3d11",
+        "--border-outline":   "#8b6533",
+        "--border-mid":       "#a07840",
+        "--border-light":     "#b09060",
+        "--surface-dark":     "#2a1a05",
+        "--surface-dark-text":"#e8d5a0",
+        "--surface-mid":      "#5c3d11",
+        "--surface-light":    "rgba(255,248,230,.55)",
+        "--card-bg":          "rgba(240,228,200,.7)",
+        "--legend-divider":   "rgba(92,61,17,.3)"
       }
     },
     {
@@ -102,6 +102,31 @@
     },
     {
       "name": "harley",
+      "vars": {
+        "--body-bg":          "#e9e8e4",
+        "--stripe-a":         "rgba(223,89,132,0.10)",
+        "--stripe-b":         "rgba(190,18,10,0.10)",
+        "--page-bg":          "#060606",
+        "--glow-a":           "rgba(53,162,191,0.25)",
+        "--glow-b":           "rgba(223,89,132,0.15)",
+        "--text-primary":     "#35a2bf",
+        "--text-secondary":   "#be120a",
+        "--accent":           "#df5984",
+        "--heading-shadow":   "rgba(223,89,132,0.25)",
+        "--border-primary":   "#35a2bf",
+        "--border-outline":   "#df5984",
+        "--border-mid":       "#be120a",
+        "--border-light":     "#e9e8e4",
+        "--surface-dark":     "#35a2bf",
+        "--surface-dark-text":"#e9e8e4",
+        "--surface-mid":      "#be120a",
+        "--surface-light":    "rgba(233,232,228,0.85)",
+        "--card-bg":          "rgba(233,232,228,0.92)",
+        "--legend-divider":   "rgba(190,18,10,0.35)"
+      }
+    },
+    {
+      "name": "pink",
       "vars": {
         "--body-bg":          "#1c0f14",
         "--stripe-a":         "rgba(255,20,147,.08)",
