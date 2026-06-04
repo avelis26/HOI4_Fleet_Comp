@@ -2,7 +2,7 @@
   <img src="assets/logos/Logo_Hearts_of_Iron_4.png" />
 </p>
 
-# Naval Fleet Compisition Cheat Sheet Generator (NFCCSG)
+# Naval Fleet Composition Cheat Sheet Generator (NFCCSG)
 > Work In Progress
 
 ### If you're anything like me, you want a great looking cheat sheet on your second monitor to remind you of the fleet you're trying to build in HOI4.
