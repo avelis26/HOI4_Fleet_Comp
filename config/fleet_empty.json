@@ -1,0 +1,33 @@
+{
+  "theme": "_insert_theme_name_from_themes.json_",
+  "theaters": [
+    {
+      "name": "_insert_any_theater_name_1_",
+      "fleets": [
+        {
+          "id": "_insert_any_fleet_id_1_",
+          "display_column": 1,
+          "name": "_insert_any_fleet_name_1_",
+          "task_forces": [
+            { "id": "_insert_any_taskforce_name_1", "role": "_insert_any_rolename_1", "ships": { "CV": 1, "CL": 1, "DD": 1 } },
+            { "id": "_insert_any_taskforce_name_2", "role": "_insert_any_rolename_2", "ships": { "CV": 1, "CL": 1, "DD": 1 } }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "_insert_any_theater_name_2_",
+      "fleets": [
+        {
+          "id": "_insert_any_fleet_id_3_",
+          "display_column": 1,
+          "name": "_insert_any_fleet_name_3_",
+          "task_forces": [
+            { "id": "_insert_any_taskforce_name_3", "role": "_insert_any_rolename_3", "ships": { "CV": 1, "CL": 1, "DD": 1 } },
+            { "id": "_insert_any_taskforce_name_4", "role": "_insert_any_rolename_4", "ships": { "CV": 1, "CL": 1, "DD": 1 } }
+          ]
+        }
+      ]
+    }
+  ]
+}
