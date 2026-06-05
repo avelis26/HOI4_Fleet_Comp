@@ -68,7 +68,7 @@
             { "id": "ComBatGru22", "role": "Surface Strike ⚔️ Group Alpha",   "ships": { "BB": 5, "CA": 3, "CLAA": 8, "DD": 8, "DE": 4 } },
             { "id": "CruDesGru23", "role": "Convoy Escort 🛡️ Group Alpha",    "ships": { "CL": 1, "DE": 3 } },
             { "id": "SubRadGru24", "role": "Submarine Raider 🏴‍☠️ Group Alpha", "ships": { "SS": 12 } },
-            { "id": "DesMinGru25", "role": "Sea Mine Layer 💣 Group Hotel",    "ships": { "CM": 6 } },
+            { "id": "DesMinGru25", "role": "Sea Mine Layer 💣 Group Hotel",    "ships": { "CL": 1, "CM": 6 } },
             { "id": "CruDesGru26", "role": "Convoy Escort 🛡️ Group Bravo",    "ships": { "CL": 1, "DE": 3 } },
             { "id": "SubRadGru27", "role": "Submarine Raider 🏴‍☠️ Group Bravo", "ships": { "SS": 12 } }
             
